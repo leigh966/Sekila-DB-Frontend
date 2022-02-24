@@ -12,8 +12,8 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="actor" element={<Actor />} />
-          <Route path="film" element={<Film />} />
+          <Route path="actor/:id" element={<Actor />} />
+          <Route path="film/:id" element={<Film />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
