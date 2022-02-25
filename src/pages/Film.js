@@ -20,17 +20,54 @@ class FilmContainerHead extends React.Component {
   }
 }
 
-class FilmContainer extends React.Component {
+class FilmContainerBody extends React.Component {
   constructor(props) {
     super(props);
   }
   render() {
-    console.log("filmInfo.title: " + this.props.filmInfo[0].title);
     return (
-      <FilmContainerHead
-        title={this.props.filmInfo[0].title}
-        rating={this.props.filmInfo[0].rating}
-      />
+      <div className="FilmContainerBody">
+        <h3>
+          <EditableField
+            label="Release Year: "
+            field={this.props.releaseYear}
+          />
+        </h3>
+        <h3>
+          <EditableField label={"Language: "} field={this.props.language} />
+        </h3>
+        <h3>
+          <EditableField label={"Length: "} field={this.props.length} />
+        </h3>
+        <h3>
+          <EditableField
+            label="Description: "
+            field={<p>{this.props.description}</p>}
+          />
+        </h3>
+      </div>
+    );
+  }
+}
+
+class FilmContainer extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    console.log("filmInfo.title: " + this.props.filmInfo[0].title);
+    const film_info = this.props.filmInfo[0];
+    return (
+      <div className="FilmContainer">
+        <FilmContainerHead title={film_info.title} rating={film_info.rating} />
+        <FilmContainerBody
+          releaseYear={film_info.release_year}
+          language={film_info.language.name}
+          length={film_info.length}
+          description={film_info.description}
+        />
+      </div>
     );
   }
 }

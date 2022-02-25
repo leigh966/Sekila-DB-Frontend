@@ -9,4 +9,18 @@
   border: 1px, black, solid;
   background-color: pink;
   height: 100px;
+  width: 95%;
+}
+
+.FilmContainerBody {
+  background-color: aqua;
+  height: 150px;
+  width: 95%;
+}
+
+.FilmContainer {
+  width: 95%;
+  padding-left: 5%;
+  background-color: red;
+  height: 300px;
 }
