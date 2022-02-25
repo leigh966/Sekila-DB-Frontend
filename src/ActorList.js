@@ -1,5 +1,6 @@
 import React from "react";
 import { Outlet, Link } from "react-router-dom";
+import { getRoot } from "./API_config.js";
 
 class ActorListEntry extends React.Component {
   constructor(props) {
@@ -47,7 +48,7 @@ export class ActorList extends React.Component {
       params = this.addParam("film_id", film_id, params);
     }
 
-    fetch(`http://18.130.52.142:8080/home/get_actor${params}`)
+    fetch(`http://${getRoot()}/home/get_actor${params}`)
       .then((response) => response.json())
       .then((json) => {
         console.log(json);

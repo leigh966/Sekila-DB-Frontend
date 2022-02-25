@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, useParams } from "react-router-dom";
 import { EditableField } from "../ActorFilmTools";
 import { ActorList } from "../ActorList";
+import { getRoot } from "../API_config";
 
 class FilmContainerHead extends React.Component {
   constructor(props) {
@@ -82,7 +83,7 @@ class FilmPage extends React.Component {
     };
     console.log(this.props.id);
     var id = this.props.id;
-    fetch(`http://18.130.52.142:8080/home/get_film?id=${id}`)
+    fetch(`http://${getRoot()}/home/get_film?id=${id}`)
       .then((response) => response.json())
       .then((json) => {
         console.log(json);

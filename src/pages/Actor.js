@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, useParams } from "react-router-dom";
 import React, { useState } from "react";
 import { EditableField } from "../ActorFilmTools";
+import { getRoot } from "../API_config";
 
 class ActorContainer extends React.Component {
   constructor(props) {
@@ -26,7 +27,7 @@ class ActorPage extends React.Component {
     };
     console.log(this.props.id);
     var id = this.props.id;
-    fetch(`http://18.130.52.142:8080/home/get_actor?id=${id}`)
+    fetch(`http://${getRoot()}/home/get_actor?id=${id}`)
       .then((response) => response.json())
       .then((json) => {
         console.log(json);
