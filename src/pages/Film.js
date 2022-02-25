@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, useParams } from "react-router-dom";
 import { EditableField } from "../ActorFilmTools";
+import { ActorList } from "../ActorList";
 
 class FilmContainerHead extends React.Component {
   constructor(props) {
@@ -93,7 +94,12 @@ class FilmPage extends React.Component {
 
   render() {
     if (this.state.filmInfo) {
-      return <FilmContainer filmInfo={this.state.filmInfo} />;
+      return (
+        <div>
+          <FilmContainer filmInfo={this.state.filmInfo} />
+          <ActorList film_id={this.state.filmInfo[0].film_id} />
+        </div>
+      );
     } else {
       return <h1>Loading...</h1>;
     }
