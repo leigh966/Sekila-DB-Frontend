@@ -10,7 +10,7 @@ export class EditableField extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="EditableField">
         <div className="Field">
           {this.props.label}
           {this.state.field}
