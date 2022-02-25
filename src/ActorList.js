@@ -30,7 +30,7 @@ export class ActorList extends React.Component {
     return params;
   }
 
-  sendRequest() {
+  getParamString() {
     let params = "";
 
     const id = this.props.id;
@@ -48,6 +48,10 @@ export class ActorList extends React.Component {
       params = this.addParam("film_id", film_id, params);
     }
 
+    return params;
+  }
+
+  sendRequest(params) {
     fetch(`http://${getRoot()}/home/get_actor${params}`)
       .then((response) => response.json())
       .then((json) => {
@@ -63,7 +67,8 @@ export class ActorList extends React.Component {
     this.state = {
       actors: null,
     };
-    this.sendRequest();
+    const paramString = this.getParamString();
+    this.sendRequest(paramString);
   }
 
   render() {
