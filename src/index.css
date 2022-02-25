@@ -1,7 +1,12 @@
 .Field {
   float: left;
-  padding: 0px;
 }
 .EditButton {
   float: left;
+}
+
+.FilmContainerHead {
+  border: 1px, black, solid;
+  background-color: pink;
+  height: 100px;
 }

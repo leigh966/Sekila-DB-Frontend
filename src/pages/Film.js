@@ -1,22 +1,20 @@
 import React from "react";
 import { BrowserRouter as Router, useParams } from "react-router-dom";
+import { EditableField } from "../ActorFilmTools";
 
-class EditableField extends React.Component {
+class FilmContainerHead extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      field: this.props.field,
-    };
   }
-
   render() {
     return (
-      <div>
-        <h1 className="Field">
-          {this.props.label}
-          {this.state.field}
+      <div className="FilmContainerHead">
+        <h1>
+          <EditableField label="" field={this.props.title} />
         </h1>
-        <button className="EditButton">Edit</button>
+        <h1>
+          <EditableField label="" field={this.props.rating} />
+        </h1>
       </div>
     );
   }
@@ -28,7 +26,12 @@ class FilmContainer extends React.Component {
   }
   render() {
     console.log("filmInfo.title: " + this.props.filmInfo[0].title);
-    return <EditableField label="" field={this.props.filmInfo[0].title} />;
+    return (
+      <FilmContainerHead
+        title={this.props.filmInfo[0].title}
+        rating={this.props.filmInfo[0].rating}
+      />
+    );
   }
 }
 
