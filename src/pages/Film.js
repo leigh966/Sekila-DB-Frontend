@@ -1,6 +1,16 @@
 import React from "react";
 import { BrowserRouter as Router, useParams } from "react-router-dom";
 
+class FilmContainer extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    console.log("filmInfo.title: " + this.props.filmInfo[0].title);
+    return <h1>{this.props.filmInfo[0].title}</h1>;
+  }
+}
+
 class FilmPage extends React.Component {
   constructor(props) {
     super(props);
@@ -9,7 +19,7 @@ class FilmPage extends React.Component {
     };
     console.log(this.props.id);
     var id = this.props.id;
-    fetch(`http://18.170.34.114:8080/home/get_film?id=${id}`)
+    fetch(`http://18.130.52.142:8080/home/get_film?id=${id}`)
       .then((response) => response.json())
       .then((json) => {
         console.log(json);
@@ -21,8 +31,7 @@ class FilmPage extends React.Component {
 
   render() {
     if (this.state.filmInfo) {
-      console.log("filmInfo.title: " + this.state.filmInfo[0].title);
-      return <h1>{this.state.filmInfo[0].title}</h1>;
+      return <FilmContainer filmInfo={this.state.filmInfo} />;
     } else {
       return <h1>Loading...</h1>;
     }
