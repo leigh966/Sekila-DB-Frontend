@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Actor from "./pages/Actor";
 import Film from "./pages/Film";
 import NoPage from "./pages/NoPage";
+import "./index.css";
 
 export default function App() {
   return (

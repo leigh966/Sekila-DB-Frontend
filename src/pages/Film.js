@@ -1,22 +1,26 @@
 import React from "react";
 import { BrowserRouter as Router, useParams } from "react-router-dom";
 
-// class EditableField extends React.Component
-// {
-//   constructor(props) {
-//     super(props);
-//   }
+class EditableField extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      field: this.props.field,
+    };
+  }
 
-//   render()
-//   {
-//     return
-//     (
-//       <div>
-//         {this.props}
-//       </div>
-//     )
-//   }
-// }
+  render() {
+    return (
+      <div>
+        <h1 className="Field">
+          {this.props.label}
+          {this.state.field}
+        </h1>
+        <button className="EditButton">Edit</button>
+      </div>
+    );
+  }
+}
 
 class FilmContainer extends React.Component {
   constructor(props) {
@@ -24,7 +28,7 @@ class FilmContainer extends React.Component {
   }
   render() {
     console.log("filmInfo.title: " + this.props.filmInfo[0].title);
-    return <h1>{this.props.filmInfo[0].title}</h1>;
+    return <EditableField label="" field={this.props.filmInfo[0].title} />;
   }
 }
 
