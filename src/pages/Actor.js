@@ -2,6 +2,7 @@ import { BrowserRouter as Router, useParams } from "react-router-dom";
 import React, { useState } from "react";
 import { EditableField } from "../ActorFilmTools";
 import { getRoot } from "../API_config";
+import { FilmList } from "../FilmList";
 
 class ActorContainer extends React.Component {
   constructor(props) {
@@ -42,10 +43,13 @@ class ActorPage extends React.Component {
       console.log("ready to use actorInfo: ");
       console.log(actorInfo);
       return (
-        <ActorContainer
-          first_name={actorInfo[0].first_name}
-          last_name={actorInfo[0].last_name}
-        />
+        <div>
+          <ActorContainer
+            first_name={actorInfo[0].first_name}
+            last_name={actorInfo[0].last_name}
+          />
+          <FilmList actor_id={this.props.id} />
+        </div>
       );
     } else {
       return <h1>Loading...</h1>;
