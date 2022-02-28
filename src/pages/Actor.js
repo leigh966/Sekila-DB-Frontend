@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, useParams } from "react-router-dom";
 import React, { useState } from "react";
-import { EditableField } from "../ActorFilmTools";
+import { EditableField } from "../EditableField";
 import { getRoot } from "../API_config";
 import { FilmList } from "../FilmList";
 
