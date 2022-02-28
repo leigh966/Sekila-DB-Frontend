@@ -17,6 +17,13 @@ export class EditableField extends React.Component {
     });
   }
 
+  handleFieldChanged(fieldInput) {
+    this.setState({
+      field: fieldInput,
+      editing: this.state.editing,
+    });
+  }
+
   render() {
     if (!this.state.editing) {
       return (
@@ -35,7 +42,11 @@ export class EditableField extends React.Component {
         <div className="EditableField">
           <div className="Field">
             {this.props.label}
-            <input type="text" value={this.state.field} />
+            <input
+              type="text"
+              value={this.state.field}
+              onChange={(event) => this.handleFieldChanged(event.target.value)}
+            />
           </div>
           <button className="EditButton" onClick={this.switchMode}>
             Close
