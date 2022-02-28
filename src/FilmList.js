@@ -1,6 +1,7 @@
 import React from "react";
 import { Outlet, Link } from "react-router-dom";
 import { getRoot } from "./API_config.js";
+import { TableList } from "./TableList.js";
 
 class FilmListEntry extends React.Component {
   constructor(props) {
@@ -24,18 +25,8 @@ class FilmListEntry extends React.Component {
   }
 }
 
-export class FilmList extends React.Component {
-  addParam(name, value, params) {
-    if (params) {
-      params += "&";
-    } else {
-      params += "?";
-    }
-    params += `${name}=${value}`;
-    return params;
-  }
-
-  sendRequest() {
+export class FilmList extends TableList {
+  getParamString() {
     let params = "";
 
     const id = this.props.id;
@@ -53,14 +44,13 @@ export class FilmList extends React.Component {
       params = this.addParam("actor_id", actor_id, params);
     }
 
-    fetch(`http://${getRoot()}/home/get_film${params}`)
-      .then((response) => response.json())
-      .then((json) => {
-        console.log(json);
-        this.setState({
-          films: json,
-        });
-      });
+    return params;
+  }
+
+  onResponse(json) {
+    this.setState({
+      films: json,
+    });
   }
 
   constructor(props) {
@@ -68,7 +58,7 @@ export class FilmList extends React.Component {
     this.state = {
       films: null,
     };
-    this.sendRequest();
+    this.sendRequest("get_film", this.getParamString());
   }
 
   render() {

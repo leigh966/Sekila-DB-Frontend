@@ -1,6 +1,7 @@
 import React from "react";
 import { Outlet, Link } from "react-router-dom";
 import { getRoot } from "./API_config.js";
+import { TableList } from "./TableList.js";
 
 class ActorListEntry extends React.Component {
   constructor(props) {
@@ -13,26 +14,16 @@ class ActorListEntry extends React.Component {
     );
     return (
       <>
-      •
-      <Link className="ActorListEntry" to={`/actor/${this.props.id}`}>
-        {this.props.name}
-      </Link>
+        •
+        <Link className="ActorListEntry" to={`/actor/${this.props.id}`}>
+          {this.props.name}
+        </Link>
       </>
     );
   }
 }
 
-export class ActorList extends React.Component {
-  addParam(name, value, params) {
-    if (params) {
-      params += "&";
-    } else {
-      params += "?";
-    }
-    params += `${name}=${value}`;
-    return params;
-  }
-
+export class ActorList extends TableList {
   getParamString() {
     let params = "";
 
@@ -54,15 +45,10 @@ export class ActorList extends React.Component {
     return params;
   }
 
-  sendRequest(params) {
-    fetch(`http://${getRoot()}/home/get_actor${params}`)
-      .then((response) => response.json())
-      .then((json) => {
-        console.log(json);
-        this.setState({
-          actors: json,
-        });
-      });
+  onResponse(json) {
+    this.setState({
+      actors: json,
+    });
   }
 
   constructor(props) {
@@ -71,7 +57,7 @@ export class ActorList extends React.Component {
       actors: null,
     };
     const paramString = this.getParamString();
-    this.sendRequest(paramString);
+    this.sendRequest("get_actor", paramString);
   }
 
   render() {
