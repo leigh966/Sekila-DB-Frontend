@@ -86,6 +86,20 @@ class ActorPage extends React.Component {
   saveActor() {
     console.log(this.state.first_name);
     console.log(this.state.last_name);
+    const id = this.props.id;
+    const first_name = this.state.first_name;
+    const last_name = this.state.last_name;
+    fetch(
+      `http://${getRoot()}/home/update_actor?id=${id}&first_name=${first_name}&last_name=${last_name}`,
+      {
+        method: "PUT",
+      }
+    )
+      .then((response) => response.text())
+      .then((text) => {
+        console.log(text);
+        window.alert(text);
+      });
   }
 
   render() {
