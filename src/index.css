@@ -34,5 +34,9 @@
 }
 
 .ActorListEntry {
-  padding-right: 20px;
+  padding-right: 45px;
+}
+
+.ActorsListForFilm {
+  padding: 30px;
 }

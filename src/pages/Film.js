@@ -75,6 +75,19 @@ class FilmContainer extends React.Component {
   }
 }
 
+class ActorListContainer extends React.Component {
+  render() {
+    return (
+      <div>
+        <h2>Actors:</h2>
+        <div className="ActorsListForFilm">
+          <ActorList film_id={this.props.film_id} />
+        </div>
+      </div>
+    );
+  }
+}
+
 class FilmPage extends React.Component {
   constructor(props) {
     super(props);
@@ -98,7 +111,7 @@ class FilmPage extends React.Component {
       return (
         <div>
           <FilmContainer filmInfo={this.state.filmInfo} />
-          <ActorList film_id={this.state.filmInfo[0].film_id} />
+          <ActorListContainer film_id={this.state.filmInfo[0].film_id} />
         </div>
       );
     } else {
