@@ -8,13 +8,22 @@ class ActorContainer extends React.Component {
   constructor(props) {
     super(props);
   }
+
   render() {
     console.log("Using actorInfo: ");
     console.log(this.props.first_name + " " + this.props.last_name);
     return (
       <h1>
-        <EditableField label="" field={this.props.first_name} />
-        <EditableField label="" field={this.props.last_name} />
+        <EditableField
+          label=""
+          field={this.props.first_name}
+          handler={this.props.firstNameHandler}
+        />
+        <EditableField
+          label=""
+          field={this.props.last_name}
+          handler={this.props.lastNameHandler}
+        />
       </h1>
     );
   }
@@ -38,6 +47,8 @@ class ActorPage extends React.Component {
     super(props);
     this.state = {
       actorInfo: null,
+      first_name: null,
+      last_name: null,
     };
     console.log(this.props.id);
     var id = this.props.id;
@@ -47,9 +58,36 @@ class ActorPage extends React.Component {
         console.log(json);
         this.setState({
           actorInfo: json,
+          first_name: json[0].first_name,
+          last_name: json[0].last_name,
         });
       });
+    this.saveActor = this.saveActor.bind(this);
+    this.handleFirstNameChanged = this.handleFirstNameChanged.bind(this);
+    this.handleLastNameChanged = this.handleLastNameChanged.bind(this);
   }
+
+  handleFirstNameChanged(new_first_name) {
+    this.setState({
+      filmInfo: this.state.filmInfo,
+      last_name: this.state.last_name,
+      first_name: new_first_name,
+    });
+  }
+
+  handleLastNameChanged(new_last_name) {
+    this.setState({
+      filmInfo: this.state.filmInfo,
+      first_name: this.state.first_name,
+      last_name: new_last_name,
+    });
+  }
+
+  saveActor() {
+    console.log(this.state.first_name);
+    console.log(this.state.last_name);
+  }
+
   render() {
     const actorInfo = this.state.actorInfo;
     if (actorInfo) {
@@ -57,9 +95,14 @@ class ActorPage extends React.Component {
       console.log(actorInfo);
       return (
         <div>
+          <button className="saveChangesButton" onClick={this.saveActor}>
+            Save
+          </button>
           <ActorContainer
             first_name={actorInfo[0].first_name}
             last_name={actorInfo[0].last_name}
+            firstNameHandler={this.handleFirstNameChanged}
+            lastNameHandler={this.handleLastNameChanged}
           />
           <br />
           <FilmListContainer id={this.props.id} />
