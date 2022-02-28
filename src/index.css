@@ -37,6 +37,7 @@
   padding-right: 45px;
 }
 
-.ActorsListForFilm {
-  padding: 30px;
+.ActorsListForFilm,
+.FilmListForActor {
+  padding-left: 30px;
 }
