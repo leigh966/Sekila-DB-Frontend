@@ -123,7 +123,7 @@ class FilmPage extends React.Component {
 export function Film() {
   const { id } = useParams();
   console.log({ id });
-  return <FilmPage id={id[0]} />;
+  return <FilmPage id={id} />;
 }
 
 export default Film;
