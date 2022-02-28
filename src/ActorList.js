@@ -12,9 +12,12 @@ class ActorListEntry extends React.Component {
       `ActorListEntry caled with id ${this.props.id} and name ${this.props.name}`
     );
     return (
+      <>
+      •
       <Link className="ActorListEntry" to={`/actor/${this.props.id}`}>
         {this.props.name}
       </Link>
+      </>
     );
   }
 }
