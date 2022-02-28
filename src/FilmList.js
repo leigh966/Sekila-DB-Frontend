@@ -1,6 +1,5 @@
 import React from "react";
-import { Outlet, Link } from "react-router-dom";
-import { getRoot } from "./API_config.js";
+import { Link } from "react-router-dom";
 import { TableList } from "./TableList.js";
 
 class FilmListEntry extends React.Component {
