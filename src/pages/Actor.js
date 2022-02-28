@@ -69,7 +69,7 @@ class ActorPage extends React.Component {
 
   handleFirstNameChanged(new_first_name) {
     this.setState({
-      filmInfo: this.state.filmInfo,
+      actorInfo: this.state.actorInfo,
       last_name: this.state.last_name,
       first_name: new_first_name,
     });
