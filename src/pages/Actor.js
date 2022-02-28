@@ -2,7 +2,7 @@ import { BrowserRouter as Router, useParams } from "react-router-dom";
 import React, { useState } from "react";
 import { EditableField } from "../EditableField";
 import { getRoot } from "../API_config";
-import { FilmList } from "../FilmList";
+import { FilmList } from "../TableList/FilmList";
 
 class ActorContainer extends React.Component {
   constructor(props) {

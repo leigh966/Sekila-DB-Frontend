@@ -1,5 +1,5 @@
 import React from "react";
-import { getRoot } from "./API_config";
+import { getRoot } from "../API_config";
 
 export class TableList extends React.Component {
   addParam(name, value, params) {

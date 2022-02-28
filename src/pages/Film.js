@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, useParams } from "react-router-dom";
 import { EditableField } from "../EditableField";
-import { ActorList } from "../ActorList";
+import { ActorList } from "../TableList/ActorList";
 import { getRoot } from "../API_config";
 
 class FilmContainerHead extends React.Component {
