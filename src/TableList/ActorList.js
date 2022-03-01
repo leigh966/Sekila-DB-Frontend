@@ -8,9 +8,10 @@ class ActorListEntry extends React.Component {
   }
 
   render() {
+    /*
     console.log(
       `ActorListEntry caled with id ${this.props.id} and name ${this.props.name}`
-    );
+    );*/
     return (
       <>
         •
@@ -31,9 +32,9 @@ export class ActorList extends TableList {
       params = this.addParam("id", id, params);
     }
 
-    const name_query = this.props.name_query;
-    if (name_query) {
-      params = this.addParam("name_query", name_query, params);
+    const nameQuery = this.props.nameQuery;
+    if (nameQuery) {
+      params = this.addParam("nameQuery", nameQuery, params);
     }
 
     const film_id = this.props.film_id;
@@ -41,6 +42,7 @@ export class ActorList extends TableList {
       params = this.addParam("film_id", film_id, params);
     }
 
+    console.log(params);
     return params;
   }
 

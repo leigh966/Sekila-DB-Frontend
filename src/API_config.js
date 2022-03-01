@@ -1,4 +1,4 @@
-const host = "13.40.24.172";
+const host = "3.10.171.73";
 const port = "8080";
 
 export function getRoot() {
