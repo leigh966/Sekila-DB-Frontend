@@ -16,9 +16,15 @@ export class SearchBar extends React.Component {
           }}
           value={this.props.query}
         />
-        <Link to={`/${this.props.searchPageName}/` + this.props.query}>
-          <button>Search</button>
-        </Link>
+        <button
+          onClick={() => {
+            this.props.buttonHandler();
+          }}
+        >
+          <Link to={`/${this.props.searchPageName}/` + this.props.query}>
+            Search
+          </Link>
+        </button>
       </div>
     );
   }

@@ -7,42 +7,57 @@ export class SearchActorPage extends React.Component {
   constructor(props) {
     super(props);
     this.updateNameQuery = this.updateNameQuery.bind(this);
+    this.goto = this.goto.bind(this);
     this.state = {
-      actorList: null,
+      nameQuery: this.props.query,
     };
   }
 
   updateNameQuery(newQuery) {
     this.setState({
       nameQuery: newQuery,
-      actorList: this.state.actorList,
     });
   }
 
-  search() {
-    console.log("Searching " + this.state.nameQuery);
+  goto() {
+    console.log("going to " + this.state.nameQuery);
+    this.setState({
+      nameQuery: this.state.nameQuery,
+      actorList: (
+        <ActorList
+          key={this.state.nameQuery}
+          nameQuery={this.state.nameQuery}
+        />
+      ),
+    });
+
+    console.log(this.state.actorList);
   }
 
   render() {
-    const returnObject = [
+    const searchBar = (
       <SearchBar
         query={this.state.nameQuery}
         queryHandler={this.updateNameQuery}
         searchPageName="Search_Actor"
-      />,
-    ];
-
-    if (this.props.query) {
-      returnObject.push(<ActorList nameQuery={this.props.query} />);
-    }
-
-    return returnObject;
+        buttonHandler={this.goto}
+      />
+    );
+    console.log(this.state);
+    return (
+      <div key={this.state.actorList + "list"}>
+        {searchBar}
+        {this.state.actorList}
+      </div>
+    );
   }
 }
 
 const SearchActor = () => {
   const { query } = useParams();
-  return <SearchActorPage query={query} />;
+  const page = <SearchActorPage query={query} />;
+  console.log(page);
+  return page;
 };
 
 export default SearchActor;

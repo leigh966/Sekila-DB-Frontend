@@ -12,6 +12,7 @@ class ActorListEntry extends React.Component {
     console.log(
       `ActorListEntry caled with id ${this.props.id} and name ${this.props.name}`
     );*/
+    //console.log(this.props.divKey);
     return (
       <>
         •
@@ -49,7 +50,9 @@ export class ActorList extends TableList {
   onResponse(json) {
     this.setState({
       actors: json,
+      nameQuery: this.state.nameQuery,
     });
+    this.forceUpdate();
   }
 
   constructor(props) {
@@ -64,14 +67,20 @@ export class ActorList extends TableList {
   render() {
     if (this.state.actors) {
       let actor_entry_list = [];
-      this.state.actors.forEach((actor) => {
+      this.state.actors.forEach((actor, index) => {
         const actor_name = actor.first_name + " " + actor.last_name;
         const actor_entry = (
-          <ActorListEntry name={actor_name} id={actor.actor_id} />
+          <ActorListEntry
+            key={this.props.nameQuery + index}
+            name={actor_name}
+            id={actor.actor_id}
+            divKey={this.props.nameQuery + index + "div"}
+          />
         );
         actor_entry_list.push(actor_entry);
       });
-      return actor_entry_list;
+      console.log(this.props.nameQuery);
+      return <div key={this.props.nameQuery}>{actor_entry_list}</div>;
     }
     return <h1>Loading...</h1>;
   }
