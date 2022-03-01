@@ -8,6 +8,7 @@ import NoPage from "./pages/NoPage";
 import "./index.css";
 import { AllFilms } from "./pages/AllFilms";
 import { AllActors } from "./pages/AllActors";
+import { SearchActor } from "./pages/SearchActor";
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
           <Route path="film/:id" element={<Film />} />
           <Route path="films" element={<AllFilms />} />
           <Route path="actors" element={<AllActors />} />
+          <Route path="Search_Actor" element={<SearchActor />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
