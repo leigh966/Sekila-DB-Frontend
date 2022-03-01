@@ -79,7 +79,7 @@ export class ActorList extends TableList {
         );
         actor_entry_list.push(actor_entry);
       });
-      console.log(this.props.nameQuery);
+      //console.log(this.props.nameQuery);
       return <div key={this.props.nameQuery}>{actor_entry_list}</div>;
     }
     return <h1>Loading...</h1>;

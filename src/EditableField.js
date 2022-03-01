@@ -1,4 +1,5 @@
 import React from "react";
+import { RatingDropdown } from "./RatingDropdown";
 
 export class EditableField extends React.Component {
   constructor(props) {
@@ -10,9 +11,11 @@ export class EditableField extends React.Component {
     this.switchMode = this.switchMode.bind(this);
   }
 
+  // Create handle dropdown value changed
+
   switchMode() {
     this.setState({
-      field: this.state.field,
+      field: this.props.field,
       editing: !this.state.editing,
     });
   }
@@ -22,6 +25,19 @@ export class EditableField extends React.Component {
       field: fieldInput,
       editing: this.state.editing,
     });
+  }
+
+  getInput() {
+    return (
+      <input
+        type="text"
+        value={this.state.field}
+        onChange={(event) => {
+          this.props.handler(event.target.value);
+          this.handleFieldChanged(event.target.value);
+        }}
+      />
+    );
   }
 
   render() {
@@ -42,14 +58,7 @@ export class EditableField extends React.Component {
         <div className="EditableField">
           <div className="Field">
             {this.props.label}
-            <input
-              type="text"
-              value={this.state.field}
-              onChange={(event) => {
-                this.props.handler(event.target.value);
-                this.handleFieldChanged(event.target.value);
-              }}
-            />
+            {this.props.dropDown ? this.props.dropDown : this.getInput()}
           </div>
           <button className="EditButton" onClick={this.switchMode}>
             Close

@@ -3,12 +3,27 @@ import { BrowserRouter as Router, useParams } from "react-router-dom";
 import { EditableField } from "../EditableField";
 import { ActorList } from "../TableList/ActorList";
 import { getRoot } from "../API_config";
+import ReactDropdown from "react-dropdown";
+import "react-dropdown/style.css";
+import { RatingDropdown } from "../RatingDropdown";
 
 class FilmContainerHead extends React.Component {
   constructor(props) {
     super(props);
+    this.handleRatingChanged = this.handleRatingChanged.bind(this);
+    this.state = {
+      rating: this.props.rating,
+    };
   }
+
+  handleRatingChanged(new_rating) {
+    this.setState({ rating: new_rating });
+    console.log("rating updated in FilmContainerHead: " + new_rating);
+    this.forceUpdate();
+  }
+
   render() {
+    console.log("render run at FilmContainerHead, rating=" + this.state.rating);
     return (
       <div className="FilmContainerHead">
         <h1>
@@ -19,7 +34,20 @@ class FilmContainerHead extends React.Component {
           />
         </h1>
         <h1>
-          <EditableField label="" field={this.props.rating} />
+          <EditableField
+            label=""
+            field={this.state.rating}
+            handler={this.props.ratingHandler}
+            dropDown={
+              <RatingDropdown
+                handler={(p) => {
+                  this.props.ratingHandler(p);
+                  this.handleRatingChanged(p);
+                }}
+                current={this.props.rating}
+              />
+            }
+          />
         </h1>
       </div>
     );
@@ -71,6 +99,7 @@ class FilmContainer extends React.Component {
           title={film_info.title}
           rating={film_info.rating}
           titleHandler={this.props.titleHandler}
+          ratingHandler={this.props.ratingHandler}
         />
         <FilmContainerBody
           releaseYear={film_info.release_year}
@@ -102,6 +131,7 @@ class FilmPage extends React.Component {
     this.state = {
       filmInfo: null,
       title: null,
+      rating: null,
     };
     console.log(this.props.id);
     var id = this.props.id;
@@ -116,22 +146,38 @@ class FilmPage extends React.Component {
       });
     this.handleTitleChanged = this.handleTitleChanged.bind(this);
     this.saveFilm = this.saveFilm.bind(this);
+    this.handleRatingChanged = this.handleRatingChanged.bind(this);
   }
 
   handleTitleChanged(new_title) {
     this.setState({
       filmInfo: this.state.filmInfo,
       title: new_title,
+      rating: this.state.rating,
     });
+  }
+
+  handleRatingChanged(new_rating) {
+    console.log("new_rating: " + new_rating);
+    this.setState({
+      filmInfo: this.state.filmInfo,
+      title: this.state.title,
+      rating: new_rating,
+    });
+    console.log("rating: " + this.state.rating);
   }
 
   saveFilm() {
     console.log(this.state.title);
     const id = this.props.id;
     const title = this.state.title;
-    fetch(`http://${getRoot()}/home/update_film?id=${id}&title=${title}`, {
-      method: "PUT",
-    })
+    const rating = this.state.rating;
+    fetch(
+      `http://${getRoot()}/home/update_film?id=${id}&title=${title}&rating=${rating}`,
+      {
+        method: "PUT",
+      }
+    )
       .then((response) => response.text())
       .then((text) => {
         console.log(text);
@@ -149,6 +195,7 @@ class FilmPage extends React.Component {
           <FilmContainer
             filmInfo={this.state.filmInfo}
             titleHandler={this.handleTitleChanged}
+            ratingHandler={this.handleRatingChanged}
           />
           <ActorListContainer film_id={this.state.filmInfo[0].film_id} />
         </div>
