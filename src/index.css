@@ -14,7 +14,7 @@
 
 .FilmContainerBody {
   background-color: aqua;
-  height: 150px;
+  height: 60%;
   width: 95%;
 }
 
@@ -22,7 +22,7 @@
   width: 95%;
   padding-left: 5%;
   background-color: red;
-  height: 330px;
+  height: 400px;
 }
 
 .EditableField {

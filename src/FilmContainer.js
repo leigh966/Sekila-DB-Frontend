@@ -69,6 +69,8 @@ class FilmContainerBody extends React.Component {
           <EditableField label={"Length: "} field={this.props.length} />
         </h3>
         <br />
+        <br />
+        <br />
         <h3>
           <EditableField
             label="Description: "
