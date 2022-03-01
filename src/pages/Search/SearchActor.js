@@ -1,13 +1,13 @@
 import { SearchBar } from "../../SearchBar";
 import React from "react";
 import { ActorList } from "../../TableList/ActorList";
+import { useNavigate, useParams } from "react-router-dom";
 
-export class SearchActor extends React.Component {
+export class SearchActorPage extends React.Component {
   constructor(props) {
     super(props);
     this.updateNameQuery = this.updateNameQuery.bind(this);
     this.state = {
-      nameQuery: "",
       actorList: null,
     };
   }
@@ -21,10 +21,6 @@ export class SearchActor extends React.Component {
 
   search() {
     console.log("Searching " + this.state.nameQuery);
-    this.setState({
-      nameQuery: this.state.nameQuery,
-      actorList: <ActorList nameQuery={this.state.nameQuery} />,
-    });
   }
 
   render() {
@@ -32,14 +28,21 @@ export class SearchActor extends React.Component {
       <SearchBar
         query={this.state.nameQuery}
         queryHandler={this.updateNameQuery}
-        buttonHandler={() => {
-          this.search();
-        }}
+        searchPageName="Search_Actor"
       />,
     ];
-    if (this.state.actorList) {
-      returnObject.push(this.state.actorList);
+
+    if (this.props.query) {
+      returnObject.push(<ActorList nameQuery={this.props.query} />);
     }
+
     return returnObject;
   }
 }
+
+const SearchActor = () => {
+  const { query } = useParams();
+  return <SearchActorPage query={query} />;
+};
+
+export default SearchActor;
