@@ -1,4 +1,4 @@
-import { FilmList } from "../TableList/FilmList";
+import { FilmList } from "../../TableList/FilmList";
 
 export function AllFilms() {
   return <FilmList />;

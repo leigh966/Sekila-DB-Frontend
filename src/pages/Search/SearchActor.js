@@ -1,6 +1,6 @@
-import { SearchBar } from "../SearchBar";
+import { SearchBar } from "../../SearchBar";
 import React from "react";
-import { ActorList } from "../TableList/ActorList";
+import { ActorList } from "../../TableList/ActorList";
 
 export class SearchActor extends React.Component {
   constructor(props) {

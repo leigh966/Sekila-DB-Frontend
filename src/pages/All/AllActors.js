@@ -1,4 +1,4 @@
-import { ActorList } from "../TableList/ActorList";
+import { ActorList } from "../../TableList/ActorList";
 
 export function AllActors() {
   return <ActorList />;

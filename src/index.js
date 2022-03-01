@@ -6,9 +6,9 @@ import Actor from "./pages/Actor";
 import Film from "./pages/Film";
 import NoPage from "./pages/NoPage";
 import "./index.css";
-import { AllFilms } from "./pages/AllFilms";
-import { AllActors } from "./pages/AllActors";
-import { SearchActor } from "./pages/SearchActor";
+import { AllFilms } from "./pages/All/AllFilms";
+import { AllActors } from "./pages/All/AllActors";
+import { SearchActor } from "./pages/Search/SearchActor";
 
 export default function App() {
   return (
