@@ -8,11 +8,6 @@ class ActorListEntry extends React.Component {
   }
 
   render() {
-    /*
-    console.log(
-      `ActorListEntry caled with id ${this.props.id} and name ${this.props.name}`
-    );*/
-    //console.log(this.props.divKey);
     return (
       <>
         •
