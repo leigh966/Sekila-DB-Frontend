@@ -74,6 +74,7 @@ class FilmContainerBody extends React.Component {
             field={this.props.language}
             start_editing={this.props.startEditing}
             dropDown={<LanguageDropdown />}
+            handler={this.props.languageHandler}
           />
         </h3>
         <h3>
@@ -124,6 +125,7 @@ export class FilmContainer extends React.Component {
           description={film_info.description}
           releaseYearHandler={this.props.releaseYearHandler}
           lengthHandler={this.props.lengthHandler}
+          languageHandler={this.props.languageHandler}
           startEditing={this.props.startEditing}
         />
       </div>
