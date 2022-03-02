@@ -132,9 +132,9 @@ export class ActorPage extends RecordPage {
           {this.getLinkContainer()}
         </div>
       );
-    } else {
-      return <h1>Loading...</h1>;
     }
+    if (this.state.errorMessage) return <h1>{this.state.errorMessage}</h1>;
+    return <h1>Loading...</h1>;
   }
 }
 

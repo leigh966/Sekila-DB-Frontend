@@ -11,6 +11,11 @@ export class RecordPage extends React.Component {
       .then((response) => response.json())
       .then((json) => {
         this.onResponse(json);
-      });
+      })
+      .catch((e) =>
+        this.setState({
+          errorMessage: e.message,
+        })
+      );
   }
 }
