@@ -10,7 +10,7 @@ class AddFilmPage extends FilmPage {
     console.log(this.state.title);
     const title = this.state.title;
     const rating = this.state.rating;
-    const releaseYear = 2006;
+    const releaseYear = this.state.releaseYear;
     const languageId = 1;
     const length = 86;
     const description = "test object";

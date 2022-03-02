@@ -75,12 +75,15 @@ export class FilmPage extends RecordPage {
   }
 
   saveFilm() {
-    console.log(this.state.title);
+    console.log(this.state.release_year);
     const id = this.props.id;
     const title = this.state.title;
     const rating = this.state.rating;
+    const release_year = this.state.releaseYear;
     fetch(
-      `http://${getRoot()}/home/update_film?id=${id}&title=${title}&rating=${rating}`,
+      `http://${getRoot()}/home/update_film?id=${id}` +
+        `&title=${title}&rating=${rating}` +
+        `&release_year=${release_year}`,
       {
         method: "PUT",
       }
