@@ -8,9 +8,6 @@ class FilmListEntry extends React.Component {
   }
 
   render() {
-    console.log(
-      `FilmListEntry caled with id "${this.props.id}", title "${this.props.title}" and description "${this.props.description}"`
-    );
     return (
       <dl>
         <dt>
@@ -35,7 +32,7 @@ export class FilmList extends TableList {
 
     const title_query = this.props.name_query;
     if (title_query) {
-      params = this.addParam("title_query", title_query, params);
+      params = this.addParam("titleQuery", title_query, params);
     }
 
     const actor_id = this.props.actor_id;
