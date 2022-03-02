@@ -79,6 +79,20 @@ class FilmPage extends RecordPage {
       });
   }
 
+  getInfoContainer() {
+    return (
+      <FilmContainer
+        filmInfo={this.state.filmInfo}
+        titleHandler={this.handleTitleChanged}
+        ratingHandler={this.handleRatingChanged}
+      />
+    );
+  }
+
+  getLinkContainer() {
+    return <ActorListContainer film_id={this.state.filmInfo[0].film_id} />;
+  }
+
   render() {
     if (this.state.filmInfo) {
       return (
@@ -86,12 +100,8 @@ class FilmPage extends RecordPage {
           <button className="saveChangesButton" onClick={this.saveFilm}>
             Save
           </button>
-          <FilmContainer
-            filmInfo={this.state.filmInfo}
-            titleHandler={this.handleTitleChanged}
-            ratingHandler={this.handleRatingChanged}
-          />
-          <ActorListContainer film_id={this.state.filmInfo[0].film_id} />
+          {this.getInfoContainer()}
+          {this.getLinkContainer()}
         </div>
       );
     } else {

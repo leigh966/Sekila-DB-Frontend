@@ -102,6 +102,21 @@ class ActorPage extends RecordPage {
       });
   }
 
+  getInfoContainer(actorInfo) {
+    return (
+      <ActorContainer
+        first_name={actorInfo[0].first_name}
+        last_name={actorInfo[0].last_name}
+        firstNameHandler={this.handleFirstNameChanged}
+        lastNameHandler={this.handleLastNameChanged}
+      />
+    );
+  }
+
+  getLinkContainer() {
+    return <FilmListContainer id={this.props.id} />;
+  }
+
   render() {
     const actorInfo = this.state.actorInfo;
     if (actorInfo) {
@@ -112,14 +127,9 @@ class ActorPage extends RecordPage {
           <button className="saveChangesButton" onClick={this.saveActor}>
             Save
           </button>
-          <ActorContainer
-            first_name={actorInfo[0].first_name}
-            last_name={actorInfo[0].last_name}
-            firstNameHandler={this.handleFirstNameChanged}
-            lastNameHandler={this.handleLastNameChanged}
-          />
+          {this.getInfoContainer(actorInfo)}
           <br />
-          <FilmListContainer id={this.props.id} />
+          {this.getLinkContainer()}
         </div>
       );
     } else {
