@@ -4,6 +4,7 @@ import { getRoot } from "../../API_config";
 class AddFilmPage extends FilmPage {
   constructor(props) {
     super(props);
+    this.startEditing = true;
   }
 
   onResponse(json) {

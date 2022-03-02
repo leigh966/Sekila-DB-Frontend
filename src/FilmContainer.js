@@ -26,6 +26,7 @@ class FilmContainerHead extends React.Component {
             label=""
             field={this.props.title}
             handler={this.props.titleHandler}
+            start_editing={this.props.startEditing}
           />
         </h1>
         <h1>
@@ -33,6 +34,7 @@ class FilmContainerHead extends React.Component {
             label=""
             field={this.state.rating}
             handler={this.props.ratingHandler}
+            start_editing={this.props.startEditing}
             dropDown={
               <RatingDropdown
                 handler={(p) => {
@@ -62,16 +64,22 @@ class FilmContainerBody extends React.Component {
             label="Release Year: "
             field={this.props.releaseYear}
             handler={this.props.releaseYearHandler}
+            start_editing={this.props.startEditing}
           />
         </h3>
         <h3>
-          <EditableField label={"Language: "} field={this.props.language} />
+          <EditableField
+            label={"Language: "}
+            field={this.props.language}
+            start_editing={this.props.startEditing}
+          />
         </h3>
         <h3>
           <EditableField
             label={"Length: "}
             field={this.props.length}
             handler={this.props.lengthHandler}
+            start_editing={this.props.startEditing}
           />
         </h3>
         <br />
@@ -81,6 +89,7 @@ class FilmContainerBody extends React.Component {
           <EditableField
             label="Description: "
             field={<p>{this.props.description}</p>}
+            start_editing={this.props.startEditing}
           />
         </h3>
       </div>
@@ -104,6 +113,7 @@ export class FilmContainer extends React.Component {
           rating={film_info.rating}
           titleHandler={this.props.titleHandler}
           ratingHandler={this.props.ratingHandler}
+          startEditing={this.props.startEditing}
         />
         <FilmContainerBody
           releaseYear={film_info.release_year}
@@ -112,6 +122,7 @@ export class FilmContainer extends React.Component {
           description={film_info.description}
           releaseYearHandler={this.props.releaseYearHandler}
           lengthHandler={this.props.lengthHandler}
+          startEditing={this.props.startEditing}
         />
       </div>
     );

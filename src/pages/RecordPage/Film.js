@@ -35,6 +35,7 @@ export class FilmPage extends RecordPage {
     this.handleRatingChangedPage = this.handleRatingChangedPage.bind(this);
     this.handleReleaseYearChanged = this.handleReleaseYearChanged.bind(this);
     this.handleLengthChanged = this.handleLengthChanged.bind(this);
+    this.startEditing = false;
   }
 
   onResponse(json) {
@@ -118,6 +119,7 @@ export class FilmPage extends RecordPage {
         ratingHandler={this.handleRatingChangedPage}
         releaseYearHandler={this.handleReleaseYearChanged}
         lengthHandler={this.handleLengthChanged}
+        startEditing={this.startEditing}
       />
     );
   }
