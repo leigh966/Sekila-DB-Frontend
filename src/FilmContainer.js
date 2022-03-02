@@ -54,12 +54,14 @@ class FilmContainerBody extends React.Component {
     super(props);
   }
   render() {
+    console.log(this);
     return (
       <div className="FilmContainerBody">
         <h3>
           <EditableField
             label="Release Year: "
             field={this.props.releaseYear}
+            handler={this.props.releaseYearHandler}
           />
         </h3>
         <h3>
@@ -90,6 +92,7 @@ export class FilmContainer extends React.Component {
   render() {
     console.log("filmInfo.title: " + this.props.filmInfo[0].title);
     const film_info = this.props.filmInfo[0];
+    console.log(this);
     return (
       <div className="FilmContainer">
         <FilmContainerHead
@@ -103,6 +106,7 @@ export class FilmContainer extends React.Component {
           language={film_info.language.name}
           length={film_info.length}
           description={film_info.description}
+          releaseYearHandler={this.props.releaseYearHandler}
         />
       </div>
     );
