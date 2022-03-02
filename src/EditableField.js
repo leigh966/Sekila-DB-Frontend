@@ -1,5 +1,5 @@
 import React from "react";
-import { RatingDropdown } from "./RatingDropdown";
+import { RatingDropdown } from "./Dropdowns/RatingDropdown";
 
 export class EditableField extends React.Component {
   constructor(props) {

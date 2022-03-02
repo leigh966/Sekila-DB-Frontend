@@ -1,6 +1,6 @@
 import React from "react";
 import { EditableField } from "./EditableField";
-import { RatingDropdown } from "./RatingDropdown";
+import { RatingDropdown } from "./Dropdowns/RatingDropdown";
 
 class FilmContainerHead extends React.Component {
   constructor(props) {
