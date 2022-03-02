@@ -16,11 +16,10 @@ export class SearchFilmPage extends SearchPage {
 
   handleDropdown(value) {
     console.log(value + " selected");
+    const currentQuery = window.document.getElementById("inputSearch").value;
     if (value == "Actor") {
       window.location.assign(
-        `http://${window.location.hostname}:${
-          window.location.port
-        }/search_actor/${this.state.query ? this.state.query : ""}`
+        `http://${window.location.hostname}:${window.location.port}/search_actor/${currentQuery}`
       );
     }
   }

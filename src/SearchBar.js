@@ -9,6 +9,7 @@ export class SearchBar extends React.Component {
     return (
       <div>
         <input
+          id="inputSearch"
           type="text"
           placeholder="Search..."
           onChange={(event) => {
