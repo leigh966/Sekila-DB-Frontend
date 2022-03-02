@@ -72,6 +72,9 @@ export class FilmList extends TableList {
       });
       return film_entry_list;
     }
+    if (this.state.failMessage) {
+      return <h1>{this.state.failMessage}</h1>;
+    }
     return <h1>Loading...</h1>;
   }
 }

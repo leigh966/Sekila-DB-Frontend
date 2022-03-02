@@ -77,6 +77,9 @@ export class ActorList extends TableList {
       //console.log(this.props.nameQuery);
       return <div key={this.props.nameQuery}>{actor_entry_list}</div>;
     }
+    if (this.state.failMessage) {
+      return <h1>{this.state.failMessage}</h1>;
+    }
     return <h1>Loading...</h1>;
   }
 }

@@ -2,6 +2,10 @@ import React from "react";
 import { getRoot } from "../API_config";
 
 export class TableList extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
   addParam(name, value, params) {
     if (params) {
       params += "&";
@@ -18,6 +22,9 @@ export class TableList extends React.Component {
       .then((json) => {
         console.log(json);
         this.onResponse(json);
+      })
+      .catch((reason) => {
+        this.setState({ failMessage: reason.message });
       });
   }
 }
