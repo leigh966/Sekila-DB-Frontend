@@ -4,6 +4,9 @@ import { getRoot } from "../API_config";
 export class TableList extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      results: null,
+    };
   }
 
   addParam(name, value, params) {

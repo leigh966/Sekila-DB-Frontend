@@ -45,9 +45,6 @@ export class FilmList extends TableList {
 
   constructor(props) {
     super(props);
-    this.state = {
-      results: null,
-    };
     this.sendRequest("get_film", this.getParamString());
   }
 

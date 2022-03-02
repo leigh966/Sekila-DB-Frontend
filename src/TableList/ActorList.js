@@ -44,9 +44,6 @@ export class ActorList extends TableList {
 
   constructor(props) {
     super(props);
-    this.state = {
-      results: null,
-    };
     const paramString = this.getParamString();
     this.sendRequest("get_actor", paramString);
   }
