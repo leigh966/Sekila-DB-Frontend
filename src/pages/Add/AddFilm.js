@@ -7,6 +7,10 @@ class AddFilmPage extends FilmPage {
     this.startEditing = true;
   }
 
+  getListContainer() {
+    return <div></div>; // Just to override the parent and stop the actorList displaying
+  }
+
   onResponse(json) {
     console.log(json);
     json[0].title = "";
