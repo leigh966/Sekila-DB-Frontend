@@ -10,6 +10,7 @@ export class SearchPage extends React.Component {
     this.state = {
       query: this.props.query,
     };
+    this.firstRender = true;
     this.searchPageName = null;
   }
 
@@ -31,6 +32,10 @@ export class SearchPage extends React.Component {
   }
 
   render() {
+    if (this.props.query && this.firstRender) {
+      this.onSearch();
+      this.firstRender = false;
+    }
     const searchBar = this.getSearchBar();
     console.log(this.state);
     return (
