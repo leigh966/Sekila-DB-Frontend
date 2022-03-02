@@ -17,8 +17,9 @@ export class SearchPage extends React.Component {
       query: newQuery,
     });
   }
-  render() {
-    const searchBar = (
+
+  getSearchBar() {
+    return (
       <SearchBar
         query={this.state.query}
         queryHandler={this.updateQuery}
@@ -26,6 +27,10 @@ export class SearchPage extends React.Component {
         buttonHandler={this.goto}
       />
     );
+  }
+
+  render() {
+    const searchBar = this.getSearchBar();
     console.log(this.state);
     return (
       <div key={this.state.resultList + "list"}>
