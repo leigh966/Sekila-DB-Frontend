@@ -2,54 +2,24 @@ import { SearchBar } from "../../SearchBar";
 import React from "react";
 import { ActorList } from "../../TableList/ActorList";
 import { useNavigate, useParams } from "react-router-dom";
+import { SearchPage } from "./SearchPage";
 
-export class SearchActorPage extends React.Component {
+export class SearchActorPage extends SearchPage {
   constructor(props) {
     super(props);
-    this.updateNameQuery = this.updateNameQuery.bind(this);
-    this.goto = this.goto.bind(this);
-    this.state = {
-      nameQuery: this.props.query,
-    };
-  }
-
-  updateNameQuery(newQuery) {
-    this.setState({
-      nameQuery: newQuery,
-    });
+    this.searchPageName = "Search_Actor";
   }
 
   goto() {
-    console.log("going to " + this.state.nameQuery);
+    console.log("going to " + this.state.query);
     this.setState({
-      nameQuery: this.state.nameQuery,
-      actorList: (
-        <ActorList
-          key={this.state.nameQuery}
-          nameQuery={this.state.nameQuery}
-        />
+      query: this.state.query,
+      resultList: (
+        <ActorList key={this.state.query} nameQuery={this.state.query} />
       ),
     });
 
-    console.log(this.state.actorList);
-  }
-
-  render() {
-    const searchBar = (
-      <SearchBar
-        query={this.state.nameQuery}
-        queryHandler={this.updateNameQuery}
-        searchPageName="Search_Actor"
-        buttonHandler={this.goto}
-      />
-    );
-    console.log(this.state);
-    return (
-      <div key={this.state.actorList + "list"}>
-        {searchBar}
-        {this.state.actorList}
-      </div>
-    );
+    console.log(this.state.resultList);
   }
 }
 

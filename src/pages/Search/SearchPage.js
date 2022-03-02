@@ -22,7 +22,7 @@ export class SearchPage extends React.Component {
       <SearchBar
         query={this.state.query}
         queryHandler={this.updateQuery}
-        searchPageName={this.searchPageName} //"Search_Film"
+        searchPageName={this.searchPageName}
         buttonHandler={this.goto}
       />
     );
