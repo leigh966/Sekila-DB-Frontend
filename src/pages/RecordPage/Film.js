@@ -94,10 +94,11 @@ export class FilmPage extends RecordPage {
     const title = this.state.title;
     const rating = this.state.rating;
     const release_year = this.state.releaseYear;
+    const length = this.state.length;
     fetch(
       `http://${getRoot()}/home/update_film?id=${id}` +
         `&title=${title}&rating=${rating}` +
-        `&release_year=${release_year}`,
+        `&release_year=${release_year}&length=${length}`,
       {
         method: "PUT",
       }
