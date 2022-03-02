@@ -33,6 +33,7 @@ export class FilmPage extends RecordPage {
     this.handleTitleChanged = this.handleTitleChanged.bind(this);
     this.saveFilm = this.saveFilm.bind(this);
     this.handleRatingChangedPage = this.handleRatingChangedPage.bind(this);
+    this.handleReleaseYearChanged = this.handleReleaseYearChanged.bind(this);
   }
 
   onResponse(json) {
@@ -49,6 +50,7 @@ export class FilmPage extends RecordPage {
       filmInfo: this.state.filmInfo,
       title: new_title,
       rating: this.state.rating,
+      releaseYear: this.state.releaseYear,
     });
   }
 
@@ -58,8 +60,18 @@ export class FilmPage extends RecordPage {
       filmInfo: this.state.filmInfo,
       title: this.state.title,
       rating: new_rating,
+      releaseYear: this.state.releaseYear,
     });
     console.log("rating: " + this.state.rating);
+  }
+
+  handleReleaseYearChanged(new_release_year) {
+    this.setState({
+      filmInfo: this.state.filmInfo,
+      title: this.state.title,
+      rating: this.state.rating,
+      releaseYear: new_release_year,
+    });
   }
 
   saveFilm() {
@@ -86,6 +98,7 @@ export class FilmPage extends RecordPage {
         filmInfo={this.state.filmInfo}
         titleHandler={this.handleTitleChanged}
         ratingHandler={this.handleRatingChangedPage}
+        releaseYearHandler={this.handleReleaseYearChanged}
       />
     );
   }
