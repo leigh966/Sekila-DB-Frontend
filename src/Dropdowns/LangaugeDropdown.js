@@ -19,7 +19,7 @@ export class LanguageDropdown extends React.Component {
   }
 
   sendRequest() {
-    fetch(`http://${getRoot()}/get_languages`)
+    fetch(`http://${getRoot()}/home/get_languages`)
       .then((response) => response.json())
       .then((json) => {
         this.onResponse(json);
