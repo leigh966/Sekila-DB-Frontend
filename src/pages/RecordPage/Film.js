@@ -116,6 +116,7 @@ export class FilmPage extends RecordPage {
         titleHandler={this.handleTitleChanged}
         ratingHandler={this.handleRatingChangedPage}
         releaseYearHandler={this.handleReleaseYearChanged}
+        lengthHandler={this.handleLengthChanged}
       />
     );
   }
