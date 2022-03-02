@@ -48,24 +48,13 @@ export class FilmList extends TableList {
     this.sendRequest("get_film", this.getParamString());
   }
 
-  render() {
-    if (this.state.results) {
-      let film_entry_list = [];
-      this.state.results.forEach((film) => {
-        const film_entry = (
-          <FilmListEntry
-            title={film.title}
-            id={film.film_id}
-            description={film.description}
-          />
-        );
-        film_entry_list.push(film_entry);
-      });
-      return film_entry_list;
-    }
-    if (this.state.failMessage) {
-      return <h1>{this.state.failMessage}</h1>;
-    }
-    return <h1>Loading...</h1>;
+  getListEntry(film) {
+    return (
+      <FilmListEntry
+        title={film.title}
+        id={film.film_id}
+        description={film.description}
+      />
+    );
   }
 }

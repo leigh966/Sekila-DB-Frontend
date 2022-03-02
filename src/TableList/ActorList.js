@@ -48,27 +48,15 @@ export class ActorList extends TableList {
     this.sendRequest("get_actor", paramString);
   }
 
-  render() {
-    if (this.state.results) {
-      let actor_entry_list = [];
-      this.state.results.forEach((actor, index) => {
-        const actor_name = actor.first_name + " " + actor.last_name;
-        const actor_entry = (
-          <ActorListEntry
-            key={this.props.query + index}
-            name={actor_name}
-            id={actor.actor_id}
-            divKey={this.props.query + index + "div"}
-          />
-        );
-        actor_entry_list.push(actor_entry);
-      });
-      //console.log(this.props.query);
-      return <div key={this.props.query}>{actor_entry_list}</div>;
-    }
-    if (this.state.failMessage) {
-      return <h1>{this.state.failMessage}</h1>;
-    }
-    return <h1>Loading...</h1>;
+  getListEntry(actor) {
+    const actor_name = actor.first_name + " " + actor.last_name;
+    return (
+      <ActorListEntry
+        key={this.props.query}
+        name={actor_name}
+        id={actor.actor_id}
+        divKey={this.props.query + "div"}
+      />
+    );
   }
 }

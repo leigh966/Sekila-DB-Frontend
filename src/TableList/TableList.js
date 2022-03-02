@@ -36,4 +36,19 @@ export class TableList extends React.Component {
         this.setState({ failMessage: reason.message });
       });
   }
+
+  render() {
+    if (this.state.results) {
+      let entry_list = [];
+      this.state.results.forEach((result) => {
+        const entry = this.getListEntry(result);
+        entry_list.push(entry);
+      });
+      return entry_list;
+    }
+    if (this.state.failMessage) {
+      return <h1>{this.state.failMessage}</h1>;
+    }
+    return <h1>Loading...</h1>;
+  }
 }
