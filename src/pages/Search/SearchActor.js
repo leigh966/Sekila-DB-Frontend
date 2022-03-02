@@ -18,6 +18,27 @@ export class SearchActorPage extends SearchPage {
   getDropdown() {
     return <ActorFilmDropdown current="Actor" />;
   }
+
+  handleDropdown(value) {
+    console.log(value + " selected");
+    if (value == "Film") {
+      window.location.assign(
+        `http://${window.location.hostname}:${
+          window.location.port
+        }/search_film/${this.state.query ? this.state.query : ""}`
+      );
+    }
+  }
+
+  getDropdown() {
+    console.log(this.state.query);
+    return (
+      <ActorFilmDropdown
+        current="Actor"
+        handler={(value) => this.handleDropdown(value)}
+      />
+    );
+  }
 }
 
 const SearchActor = () => {

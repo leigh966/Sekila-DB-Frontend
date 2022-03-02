@@ -14,8 +14,25 @@ export class SearchFilmPage extends SearchPage {
     return <FilmList key={this.state.query} name_query={this.state.query} />;
   }
 
+  handleDropdown(value) {
+    console.log(value + " selected");
+    if (value == "Actor") {
+      window.location.assign(
+        `http://${window.location.hostname}:${
+          window.location.port
+        }/search_actor/${this.state.query ? this.state.query : ""}`
+      );
+    }
+  }
+
   getDropdown() {
-    return <ActorFilmDropdown current="Film" />;
+    console.log(this.state.query);
+    return (
+      <ActorFilmDropdown
+        current="Film"
+        handler={(value) => this.handleDropdown(value)}
+      />
+    );
   }
 }
 
