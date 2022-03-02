@@ -49,9 +49,8 @@ class AddFilmPage extends FilmPage {
         window.alert(text);
         if (text == "saved") {
           window.location.assign(
-            `http://${window.location.hostname}:${window.location.port}/search_film/`
-          ); // Move off page to stop user from adding new film thinking that they're editing the one they made
-          // - can be changed to search the title once error #2 has been fixed on the server
+            `http://${window.location.hostname}:${window.location.port}/search_film/${title}`
+          );
         }
       });
   }
