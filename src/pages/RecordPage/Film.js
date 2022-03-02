@@ -19,7 +19,7 @@ class ActorListContainer extends React.Component {
   }
 }
 
-class FilmPage extends RecordPage {
+export class FilmPage extends RecordPage {
   constructor(props) {
     super(props);
     this.state = {
