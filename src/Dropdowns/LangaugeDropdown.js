@@ -31,14 +31,14 @@ export class LanguageDropdown extends React.Component {
   getOptions() {
     let options = [];
     this.state.languages.forEach((language) => {
-      options.push(langauge.name);
+      options.push(language.name);
     });
     return options;
   }
 
   render() {
     if (this.state.errorMessage) return <h4>{this.state.errorMessage}</h4>;
-    if (!languages) return <h4>Loading...</h4>;
+    if (!this.state.languages) return <h4>Loading...</h4>;
 
     const options = this.getOptions();
     return (
