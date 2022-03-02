@@ -94,14 +94,14 @@ export class FilmPage extends RecordPage {
     });
   }
 
-  handleLanguageChanged(new_langauge_id) {
+  handleLanguageChanged(new_language_id) {
     this.setState({
       filmInfo: this.state.filmInfo,
       title: this.state.title,
       rating: this.state.rating,
       releaseYear: this.state.releaseYear,
       length: this.state.length,
-      languageId: new_langauge_id,
+      languageId: new_language_id,
     });
   }
 
