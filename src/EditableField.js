@@ -4,9 +4,12 @@ import { RatingDropdown } from "./Dropdowns/RatingDropdown";
 export class EditableField extends React.Component {
   constructor(props) {
     super(props);
+
+    let start_editing = false;
+    if (this.props.start_editing) start_editing = true; // Not a good idea to just set start_editing = props.start_editing as props.start_editing might be null
     this.state = {
       field: this.props.field,
-      editing: false,
+      editing: start_editing,
     };
     this.switchMode = this.switchMode.bind(this);
   }
