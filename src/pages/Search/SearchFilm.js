@@ -2,21 +2,12 @@ import { SearchBar } from "../../SearchBar";
 import React from "react";
 import { FilmList } from "../../TableList/FilmList";
 import { useNavigate, useParams } from "react-router-dom";
+import { SearchPage } from "./SearchPage";
 
-export class SearchFilmPage extends React.Component {
+export class SearchFilmPage extends SearchPage {
   constructor(props) {
     super(props);
-    this.updateQuery = this.updateQuery.bind(this);
-    this.goto = this.goto.bind(this);
-    this.state = {
-      query: this.props.query,
-    };
-  }
-
-  updateQuery(newQuery) {
-    this.setState({
-      query: newQuery,
-    });
+    this.searchPageName = "Search_Film";
   }
 
   goto() {
@@ -29,24 +20,6 @@ export class SearchFilmPage extends React.Component {
     });
 
     console.log(this.state.resultList);
-  }
-
-  render() {
-    const searchBar = (
-      <SearchBar
-        query={this.state.query}
-        queryHandler={this.updateQuery}
-        searchPageName="Search_Film"
-        buttonHandler={this.goto}
-      />
-    );
-    console.log(this.state);
-    return (
-      <div key={this.state.resultList + "list"}>
-        {searchBar}
-        {this.state.resultList}
-      </div>
-    );
   }
 }
 
