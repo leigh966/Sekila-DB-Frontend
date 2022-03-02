@@ -51,6 +51,7 @@ export class FilmPage extends RecordPage {
       title: new_title,
       rating: this.state.rating,
       releaseYear: this.state.releaseYear,
+      length: this.state.length,
     });
   }
 
@@ -61,6 +62,7 @@ export class FilmPage extends RecordPage {
       title: this.state.title,
       rating: new_rating,
       releaseYear: this.state.releaseYear,
+      length: this.state.length,
     });
     console.log("rating: " + this.state.rating);
   }
@@ -71,6 +73,17 @@ export class FilmPage extends RecordPage {
       title: this.state.title,
       rating: this.state.rating,
       releaseYear: new_release_year,
+      length: this.state.length,
+    });
+  }
+
+  handleLengthChanged(new_length) {
+    this.setState({
+      filmInfo: this.state.filmInfo,
+      title: this.state.title,
+      rating: this.state.rating,
+      releaseYear: this.state.releaseYear,
+      length: new_length,
     });
   }
 
