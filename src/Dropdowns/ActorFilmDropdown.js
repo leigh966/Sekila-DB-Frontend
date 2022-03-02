@@ -9,7 +9,6 @@ export class ActorFilmDropdown extends React.Component {
 
   render() {
     const options = ["Actor", "Film"];
-    const defaultOption = this.props.current;
     return (
       <Dropdown
         options={options}

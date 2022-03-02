@@ -9,7 +9,6 @@ export class RatingDropdown extends React.Component {
 
   render() {
     const options = ["G", "PG", "NC-17"];
-    const defaultOption = options[0];
     return (
       <Dropdown
         options={options}
