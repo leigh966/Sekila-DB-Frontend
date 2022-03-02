@@ -1,6 +1,7 @@
 import React from "react";
 import { EditableField } from "./EditableField";
 import { RatingDropdown } from "./Dropdowns/RatingDropdown";
+import { LanguageDropdown } from "./Dropdowns/LangaugeDropdown";
 
 class FilmContainerHead extends React.Component {
   constructor(props) {
@@ -72,6 +73,7 @@ class FilmContainerBody extends React.Component {
             label={"Language: "}
             field={this.props.language}
             start_editing={this.props.startEditing}
+            dropDown={<LanguageDropdown />}
           />
         </h3>
         <h3>
