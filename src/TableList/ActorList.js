@@ -28,9 +28,9 @@ export class ActorList extends TableList {
       params = this.addParam("id", id, params);
     }
 
-    const nameQuery = this.props.nameQuery;
-    if (nameQuery) {
-      params = this.addParam("nameQuery", nameQuery, params);
+    const query = this.props.nameQuery;
+    if (query) {
+      params = this.addParam("nameQuery", query, params);
     }
 
     const film_id = this.props.film_id;
@@ -44,8 +44,8 @@ export class ActorList extends TableList {
 
   onResponse(json) {
     this.setState({
-      actors: json,
-      nameQuery: this.state.nameQuery,
+      results: json,
+      query: this.state.query,
     });
     this.forceUpdate();
   }
@@ -53,29 +53,29 @@ export class ActorList extends TableList {
   constructor(props) {
     super(props);
     this.state = {
-      actors: null,
+      results: null,
     };
     const paramString = this.getParamString();
     this.sendRequest("get_actor", paramString);
   }
 
   render() {
-    if (this.state.actors) {
+    if (this.state.results) {
       let actor_entry_list = [];
-      this.state.actors.forEach((actor, index) => {
+      this.state.results.forEach((actor, index) => {
         const actor_name = actor.first_name + " " + actor.last_name;
         const actor_entry = (
           <ActorListEntry
-            key={this.props.nameQuery + index}
+            key={this.props.query + index}
             name={actor_name}
             id={actor.actor_id}
-            divKey={this.props.nameQuery + index + "div"}
+            divKey={this.props.query + index + "div"}
           />
         );
         actor_entry_list.push(actor_entry);
       });
-      //console.log(this.props.nameQuery);
-      return <div key={this.props.nameQuery}>{actor_entry_list}</div>;
+      //console.log(this.props.query);
+      return <div key={this.props.query}>{actor_entry_list}</div>;
     }
     if (this.state.failMessage) {
       return <h1>{this.state.failMessage}</h1>;
