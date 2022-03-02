@@ -12,7 +12,7 @@ class AddFilmPage extends FilmPage {
     const rating = this.state.rating;
     const releaseYear = this.state.releaseYear;
     const languageId = 1;
-    const length = 86;
+    const length = this.state.length;
     const description = "test object";
 
     fetch(
