@@ -32,7 +32,7 @@ export class FilmPage extends RecordPage {
 
     this.handleTitleChanged = this.handleTitleChanged.bind(this);
     this.saveFilm = this.saveFilm.bind(this);
-    this.handleRatingChanged = this.handleRatingChanged.bind(this);
+    this.handleRatingChangedPage = this.handleRatingChangedPage.bind(this);
   }
 
   onResponse(json) {
@@ -40,6 +40,7 @@ export class FilmPage extends RecordPage {
     this.setState({
       filmInfo: json,
       title: json[0].title,
+      rating: json[0].rating,
     });
   }
 
@@ -51,7 +52,7 @@ export class FilmPage extends RecordPage {
     });
   }
 
-  handleRatingChanged(new_rating) {
+  handleRatingChangedPage(new_rating) {
     console.log("new_rating: " + new_rating);
     this.setState({
       filmInfo: this.state.filmInfo,
@@ -84,7 +85,7 @@ export class FilmPage extends RecordPage {
       <FilmContainer
         filmInfo={this.state.filmInfo}
         titleHandler={this.handleTitleChanged}
-        ratingHandler={this.handleRatingChanged}
+        ratingHandler={this.handleRatingChangedPage}
       />
     );
   }

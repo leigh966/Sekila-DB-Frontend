@@ -11,11 +11,13 @@ export class EditableField extends React.Component {
     this.switchMode = this.switchMode.bind(this);
   }
 
-  // Create handle dropdown value changed
-
   switchMode() {
+    let newField = this.state.field;
+    if (this.props.dropDown) {
+      newField = this.props.field;
+    }
     this.setState({
-      field: this.state.field,
+      field: newField,
       editing: !this.state.editing,
     });
   }
