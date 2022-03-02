@@ -43,7 +43,7 @@ export class SearchPage extends React.Component {
   }
 
   onSearch() {
-    console.log("going to " + this.state.query);
+    console.log("Searching " + this.state.query);
     this.setState({
       query: this.state.query,
       resultList: this.getList(),
