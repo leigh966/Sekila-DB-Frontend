@@ -15,7 +15,7 @@ export class EditableField extends React.Component {
 
   switchMode() {
     this.setState({
-      field: this.props.field,
+      field: this.state.field,
       editing: !this.state.editing,
     });
   }
