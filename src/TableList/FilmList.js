@@ -30,9 +30,9 @@ export class FilmList extends TableList {
       params = this.addParam("id", id, params);
     }
 
-    const title_query = this.props.name_query;
-    if (title_query) {
-      params = this.addParam("titleQuery", title_query, params);
+    const query = this.props.name_query;
+    if (query) {
+      params = this.addParam("titleQuery", query, params);
     }
 
     const actor_id = this.props.actor_id;
@@ -43,24 +43,18 @@ export class FilmList extends TableList {
     return params;
   }
 
-  onResponse(json) {
-    this.setState({
-      films: json,
-    });
-  }
-
   constructor(props) {
     super(props);
     this.state = {
-      films: null,
+      results: null,
     };
     this.sendRequest("get_film", this.getParamString());
   }
 
   render() {
-    if (this.state.films) {
+    if (this.state.results) {
       let film_entry_list = [];
-      this.state.films.forEach((film) => {
+      this.state.results.forEach((film) => {
         const film_entry = (
           <FilmListEntry
             title={film.title}

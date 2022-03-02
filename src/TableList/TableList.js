@@ -16,6 +16,12 @@ export class TableList extends React.Component {
     return params;
   }
 
+  onResponse(json) {
+    this.setState({
+      results: json,
+    });
+  }
+
   sendRequest(path, params) {
     fetch(`http://${getRoot()}/home/${path}${params}`)
       .then((response) => response.json())

@@ -42,14 +42,6 @@ export class ActorList extends TableList {
     return params;
   }
 
-  onResponse(json) {
-    this.setState({
-      results: json,
-      query: this.state.query,
-    });
-    this.forceUpdate();
-  }
-
   constructor(props) {
     super(props);
     this.state = {
