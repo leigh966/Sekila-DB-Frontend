@@ -3,6 +3,7 @@ import React from "react";
 import { ActorList } from "../../TableList/ActorList";
 import { useParams } from "react-router-dom";
 import { SearchPage } from "./SearchPage";
+import { ActorFilmDropdown } from "../../Dropdowns/ActorFilmDropdown";
 
 export class SearchActorPage extends SearchPage {
   constructor(props) {
@@ -12,6 +13,10 @@ export class SearchActorPage extends SearchPage {
 
   getList() {
     return <ActorList key={this.state.query} nameQuery={this.state.query} />;
+  }
+
+  getDropdown() {
+    return <ActorFilmDropdown current="Actor" />;
   }
 }
 

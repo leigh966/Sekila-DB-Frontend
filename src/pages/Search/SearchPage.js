@@ -1,5 +1,6 @@
 import React from "react";
 import { SearchBar } from "../../SearchBar";
+import { ActorFilmDropdown } from "../../Dropdowns/ActorFilmDropdown";
 
 export class SearchPage extends React.Component {
   constructor(props) {
@@ -35,6 +36,7 @@ export class SearchPage extends React.Component {
     return (
       <div key={this.state.resultList + "list"}>
         {searchBar}
+        {this.getDropdown()}
         {this.state.resultList}
       </div>
     );
