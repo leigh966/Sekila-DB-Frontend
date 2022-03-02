@@ -6,6 +6,20 @@ class AddFilmPage extends FilmPage {
     super(props);
   }
 
+  onResponse(json) {
+    console.log(json);
+    json[0].title = "";
+    json[0].rating = "";
+    //json[0].description = "";
+    json[0].release_year = "";
+    json[0].length = "";
+    this.setState({
+      filmInfo: json,
+      title: json[0].title,
+      rating: json[0].rating,
+    });
+  }
+
   saveFilm() {
     console.log(this.state.title);
     const title = this.state.title;
