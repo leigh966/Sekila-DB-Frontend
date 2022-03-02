@@ -17,6 +17,9 @@ const Layout = () => {
           <li>
             <Link to="/Search_Film">Search</Link>
           </li>
+          <li>
+            <Link to="/add_film">Add Film</Link>
+          </li>
         </ul>
       </nav>
 
