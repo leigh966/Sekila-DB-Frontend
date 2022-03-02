@@ -4,6 +4,7 @@ import { ActorList } from "../../TableList/ActorList";
 import { getRoot } from "../../API_config";
 import "react-dropdown/style.css";
 import { FilmContainer } from "../../FilmContainer";
+import { RecordPage } from "./RecordPage";
 
 class ActorListContainer extends React.Component {
   render() {
@@ -18,7 +19,7 @@ class ActorListContainer extends React.Component {
   }
 }
 
-class FilmPage extends React.Component {
+class FilmPage extends RecordPage {
   constructor(props) {
     super(props);
     this.state = {
@@ -26,20 +27,20 @@ class FilmPage extends React.Component {
       title: null,
       rating: null,
     };
-    console.log(this.props.id);
-    var id = this.props.id;
-    fetch(`http://${getRoot()}/home/get_film?id=${id}`)
-      .then((response) => response.json())
-      .then((json) => {
-        console.log(json);
-        this.setState({
-          filmInfo: json,
-          title: json[0].title,
-        });
-      });
+
+    this.sendRequest("get_film");
+
     this.handleTitleChanged = this.handleTitleChanged.bind(this);
     this.saveFilm = this.saveFilm.bind(this);
     this.handleRatingChanged = this.handleRatingChanged.bind(this);
+  }
+
+  onResponse(json) {
+    console.log(json);
+    this.setState({
+      filmInfo: json,
+      title: json[0].title,
+    });
   }
 
   handleTitleChanged(new_title) {

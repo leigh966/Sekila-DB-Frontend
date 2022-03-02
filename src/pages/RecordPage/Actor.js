@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { EditableField } from "../../EditableField";
 import { getRoot } from "../../API_config";
 import { FilmList } from "../../TableList/FilmList";
+import { RecordPage } from "./RecordPage";
 
 class ActorContainer extends React.Component {
   constructor(props) {
@@ -42,7 +43,7 @@ class FilmListContainer extends React.Component {
   }
 }
 
-class ActorPage extends React.Component {
+class ActorPage extends RecordPage {
   constructor(props) {
     super(props);
     this.state = {
@@ -55,15 +56,6 @@ class ActorPage extends React.Component {
     this.saveActor = this.saveActor.bind(this);
     this.handleFirstNameChanged = this.handleFirstNameChanged.bind(this);
     this.handleLastNameChanged = this.handleLastNameChanged.bind(this);
-  }
-
-  sendRequest(func) {
-    var id = this.props.id;
-    fetch(`http://${getRoot()}/home/${func}?id=${id}`)
-      .then((response) => response.json())
-      .then((json) => {
-        this.onResponse(json);
-      });
   }
 
   onResponse(json) {
