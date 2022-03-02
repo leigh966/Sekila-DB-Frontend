@@ -34,4 +34,14 @@ export class SearchPage extends React.Component {
       </div>
     );
   }
+
+  goto() {
+    console.log("going to " + this.state.query);
+    this.setState({
+      query: this.state.query,
+      resultList: this.getList(),
+    });
+
+    console.log(this.state.resultList);
+  }
 }

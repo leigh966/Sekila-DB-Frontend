@@ -10,16 +10,8 @@ export class SearchFilmPage extends SearchPage {
     this.searchPageName = "Search_Film";
   }
 
-  goto() {
-    console.log("going to " + this.state.query);
-    this.setState({
-      query: this.state.query,
-      resultList: (
-        <FilmList key={this.state.query} name_query={this.state.query} />
-      ),
-    });
-
-    console.log(this.state.resultList);
+  getList() {
+    return <FilmList key={this.state.query} name_query={this.state.query} />;
   }
 }
 

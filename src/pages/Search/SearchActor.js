@@ -10,16 +10,8 @@ export class SearchActorPage extends SearchPage {
     this.searchPageName = "Search_Actor";
   }
 
-  goto() {
-    console.log("going to " + this.state.query);
-    this.setState({
-      query: this.state.query,
-      resultList: (
-        <ActorList key={this.state.query} nameQuery={this.state.query} />
-      ),
-    });
-
-    console.log(this.state.resultList);
+  getList() {
+    return <ActorList key={this.state.query} nameQuery={this.state.query} />;
   }
 }
 
