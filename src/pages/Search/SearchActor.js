@@ -1,7 +1,7 @@
 import { SearchBar } from "../../SearchBar";
 import React from "react";
 import { ActorList } from "../../TableList/ActorList";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { SearchPage } from "./SearchPage";
 
 export class SearchActorPage extends SearchPage {
