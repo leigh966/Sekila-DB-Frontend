@@ -2,14 +2,14 @@ import React from "react";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 
-export class RatingDropdown extends React.Component {
+export class ActorFilmDropdown extends React.Component {
   constructor(props) {
     super(props);
   }
 
   render() {
-    const options = ["G", "PG", "NC-17"];
-    const defaultOption = options[0];
+    const options = ["Actor", "Film"];
+    const defaultOption = this.props.current;
     return (
       <Dropdown
         options={options}
