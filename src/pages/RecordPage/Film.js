@@ -34,6 +34,7 @@ export class FilmPage extends RecordPage {
     this.saveFilm = this.saveFilm.bind(this);
     this.handleRatingChangedPage = this.handleRatingChangedPage.bind(this);
     this.handleReleaseYearChanged = this.handleReleaseYearChanged.bind(this);
+    this.handleLengthChanged = this.handleLengthChanged.bind(this);
   }
 
   onResponse(json) {
