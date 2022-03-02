@@ -6,7 +6,7 @@ export class SearchPage extends React.Component {
   constructor(props) {
     super(props);
     this.updateQuery = this.updateQuery.bind(this);
-    this.goto = this.goto.bind(this);
+    this.onSearch = this.onSearch.bind(this);
     this.state = {
       query: this.props.query,
     };
@@ -25,7 +25,7 @@ export class SearchPage extends React.Component {
         query={this.state.query}
         queryHandler={this.updateQuery}
         searchPageName={this.searchPageName}
-        buttonHandler={this.goto}
+        buttonHandler={this.onSearch}
       />
     );
   }
@@ -42,7 +42,7 @@ export class SearchPage extends React.Component {
     );
   }
 
-  goto() {
+  onSearch() {
     console.log("going to " + this.state.query);
     this.setState({
       query: this.state.query,
