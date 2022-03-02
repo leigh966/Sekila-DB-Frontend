@@ -49,12 +49,11 @@ export class FilmPage extends RecordPage {
   }
 
   handleTitleChanged(new_title) {
+    let newFilmInfo = this.state.filmInfo;
+    newFilmInfo[0].title = new_title;
     this.setState({
       filmInfo: this.state.filmInfo,
-      title: new_title,
       rating: this.state.rating,
-      releaseYear: this.state.releaseYear,
-      length: this.state.length,
       langaugeId: this.state.langaugeId,
     });
   }
@@ -63,33 +62,28 @@ export class FilmPage extends RecordPage {
     console.log("new_rating: " + new_rating);
     this.setState({
       filmInfo: this.state.filmInfo,
-      title: this.state.title,
       rating: new_rating,
-      releaseYear: this.state.releaseYear,
-      length: this.state.length,
       langaugeId: this.state.langaugeId,
     });
     console.log("rating: " + this.state.rating);
   }
 
   handleReleaseYearChanged(new_release_year) {
+    let newFilmInfo = this.state.filmInfo;
+    newFilmInfo[0].release_year = new_release_year;
     this.setState({
       filmInfo: this.state.filmInfo,
-      title: this.state.title,
       rating: this.state.rating,
-      releaseYear: new_release_year,
-      length: this.state.length,
       langaugeId: this.state.langaugeId,
     });
   }
 
   handleLengthChanged(new_length) {
+    let newFilmInfo = this.state.filmInfo;
+    newFilmInfo[0].length = new_length;
     this.setState({
-      filmInfo: this.state.filmInfo,
-      title: this.state.title,
+      filmInfo: newFilmInfo,
       rating: this.state.rating,
-      releaseYear: this.state.releaseYear,
-      length: new_length,
       langaugeId: this.state.langaugeId,
     });
   }
@@ -97,10 +91,7 @@ export class FilmPage extends RecordPage {
   handleLanguageChanged(new_language_id) {
     this.setState({
       filmInfo: this.state.filmInfo,
-      title: this.state.title,
       rating: this.state.rating,
-      releaseYear: this.state.releaseYear,
-      length: this.state.length,
       languageId: new_language_id,
     });
   }
@@ -112,10 +103,12 @@ export class FilmPage extends RecordPage {
     const rating = this.state.rating;
     const release_year = this.state.releaseYear;
     const length = this.state.length;
+    const languageId = this.state.langaugeId;
     fetch(
       `http://${getRoot()}/home/update_film?id=${id}` +
         `&title=${title}&rating=${rating}` +
-        `&release_year=${release_year}&length=${length}`,
+        `&release_year=${release_year}&length=${length}` +
+        `&language_id=${languageId}`,
       {
         method: "PUT",
       }
