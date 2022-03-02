@@ -51,20 +51,28 @@ class ActorPage extends React.Component {
       last_name: null,
     };
     console.log(this.props.id);
-    var id = this.props.id;
-    fetch(`http://${getRoot()}/home/get_actor?id=${id}`)
-      .then((response) => response.json())
-      .then((json) => {
-        console.log(json);
-        this.setState({
-          actorInfo: json,
-          first_name: json[0].first_name,
-          last_name: json[0].last_name,
-        });
-      });
+    this.sendRequest("get_actor");
     this.saveActor = this.saveActor.bind(this);
     this.handleFirstNameChanged = this.handleFirstNameChanged.bind(this);
     this.handleLastNameChanged = this.handleLastNameChanged.bind(this);
+  }
+
+  sendRequest(func) {
+    var id = this.props.id;
+    fetch(`http://${getRoot()}/home/${func}?id=${id}`)
+      .then((response) => response.json())
+      .then((json) => {
+        this.onResponse(json);
+      });
+  }
+
+  onResponse(json) {
+    console.log(json);
+    this.setState({
+      actorInfo: json,
+      first_name: json[0].first_name,
+      last_name: json[0].last_name,
+    });
   }
 
   handleFirstNameChanged(new_first_name) {
