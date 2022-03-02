@@ -73,8 +73,7 @@ class FilmContainerBody extends React.Component {
             label={"Language: "}
             field={this.props.language}
             start_editing={this.props.startEditing}
-            dropDown={<LanguageDropdown />}
-            handler={this.props.languageHandler}
+            dropDown={<LanguageDropdown handler={this.props.languageHandler} />}
           />
         </h3>
         <h3>
