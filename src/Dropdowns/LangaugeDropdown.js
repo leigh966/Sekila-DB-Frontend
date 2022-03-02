@@ -7,6 +7,9 @@ export class LanguageDropdown extends React.Component {
   constructor(props) {
     super(props);
     this.sendRequest();
+    this.state = {
+      errorMessage: null,
+    };
   }
 
   onResponse(json) {
@@ -38,6 +41,7 @@ export class LanguageDropdown extends React.Component {
 
   render() {
     if (this.state.errorMessage) return <h4>{this.state.errorMessage}</h4>;
+
     if (!this.state.languages) return <h4>Loading...</h4>;
 
     const options = this.getOptions();
