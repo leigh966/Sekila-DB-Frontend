@@ -124,7 +124,7 @@ export class FilmPage extends RecordPage {
     );
   }
 
-  getLinkContainer() {
+  getListContainer() {
     return <ActorListContainer film_id={this.state.filmInfo[0].film_id} />;
   }
 
@@ -136,7 +136,7 @@ export class FilmPage extends RecordPage {
             Save
           </button>
           {this.getInfoContainer()}
-          {this.getLinkContainer()}
+          {this.getListContainer()}
         </div>
       );
     }
