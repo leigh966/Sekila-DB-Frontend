@@ -20,6 +20,9 @@ const Layout = () => {
           <li>
             <Link to="/add_actor">Add Actor</Link>
           </li>
+          <li>
+            <Link to="/add_film">Add Film</Link>
+          </li>
         </ul>
       </nav>
 
