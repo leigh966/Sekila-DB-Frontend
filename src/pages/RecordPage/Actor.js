@@ -19,11 +19,13 @@ class ActorContainer extends React.Component {
           label="Forename: "
           field={this.props.first_name}
           handler={this.props.firstNameHandler}
+          start_editing={this.props.startEditing}
         />
         <EditableField
           label="Surname: "
           field={this.props.last_name}
           handler={this.props.lastNameHandler}
+          start_editing={this.props.startEditing}
         />
       </h1>
     );
@@ -109,6 +111,7 @@ export class ActorPage extends RecordPage {
         last_name={actorInfo[0].last_name}
         firstNameHandler={this.handleFirstNameChanged}
         lastNameHandler={this.handleLastNameChanged}
+        startEditing={this.startEditing}
       />
     );
   }

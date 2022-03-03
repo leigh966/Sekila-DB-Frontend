@@ -4,6 +4,7 @@ import { getRoot } from "../../API_config";
 class AddActorPage extends ActorPage {
   constructor(props) {
     super(props);
+    this.startEditing = true;
   }
 
   getListContainer() {
