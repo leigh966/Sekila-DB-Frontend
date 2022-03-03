@@ -11,6 +11,17 @@ class AddActorPage extends ActorPage {
     return <div></div>; // Just to override the parent and stop the filmList displaying
   }
 
+  onResponse(json) {
+    console.log("AddActor onResponse run");
+    json[0].first_name = "";
+    json[0].last_name = "";
+    this.setState({
+      first_name: "",
+      last_name: "",
+      actorInfo: json,
+    });
+  }
+
   saveActor() {
     console.log(this.state.first_name);
     console.log(this.state.last_name);
