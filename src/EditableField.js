@@ -45,14 +45,20 @@ export class EditableField extends React.Component {
     );
   }
 
+  getLabelField() {
+    return (
+      <div className="Field">
+        {this.props.label}
+        {this.state.field}
+      </div>
+    );
+  }
+
   render() {
     if (!this.state.editing) {
       return (
         <div className="EditableField">
-          <div className="Field">
-            {this.props.label}
-            {this.state.field}
-          </div>
+          {this.getLabelField()}
           <button className="EditButton" onClick={this.switchMode}>
             Edit
           </button>

@@ -2,6 +2,7 @@ import React from "react";
 import { EditableField } from "./EditableField";
 import { RatingDropdown } from "./Dropdowns/RatingDropdown";
 import { LanguageDropdown } from "./Dropdowns/LanguageDropdown";
+import { DescriptionEditable } from "./DescriptionEditable";
 
 class FilmContainerHead extends React.Component {
   constructor(props) {
@@ -108,9 +109,9 @@ class FilmContainerBody extends React.Component {
         <br />
         <br />
         <h3>
-          <EditableField
+          <DescriptionEditable
             label="Description: "
-            field={<p>{this.props.description}</p>}
+            field={this.props.description}
             start_editing={this.props.startEditing}
           />
         </h3>
