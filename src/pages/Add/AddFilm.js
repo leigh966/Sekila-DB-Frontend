@@ -11,6 +11,7 @@ class AddFilmPage extends FilmPage {
     return <div></div>; // Just to override the parent and stop the actorList displaying
   }
 
+  // Override parent to blank out fields
   onResponse(json) {
     console.log(json);
     json[0].title = "";
