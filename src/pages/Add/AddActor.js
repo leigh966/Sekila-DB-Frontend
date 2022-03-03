@@ -20,6 +20,9 @@ class AddActorPage extends ActorPage {
       .then((text) => {
         console.log(text);
         window.alert(text);
+        window.location.assign(
+          `http://${window.location.hostname}:${window.location.port}/search_actor/${first_name}%20${last_name}`
+        );
       });
   }
 }
