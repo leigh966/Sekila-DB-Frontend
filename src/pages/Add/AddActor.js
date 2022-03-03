@@ -5,6 +5,11 @@ class AddActorPage extends ActorPage {
   constructor(props) {
     super(props);
   }
+
+  getListContainer() {
+    return <div></div>; // Just to override the parent and stop the filmList displaying
+  }
+
   saveActor() {
     console.log(this.state.first_name);
     console.log(this.state.last_name);
