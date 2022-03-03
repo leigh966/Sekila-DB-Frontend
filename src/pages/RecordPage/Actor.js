@@ -113,7 +113,7 @@ export class ActorPage extends RecordPage {
     );
   }
 
-  getLinkContainer() {
+  getListContainer() {
     return <FilmListContainer id={this.props.id} />;
   }
 
@@ -129,7 +129,7 @@ export class ActorPage extends RecordPage {
           </button>
           {this.getInfoContainer(actorInfo)}
           <br />
-          {this.getLinkContainer()}
+          {this.getListContainer()}
         </div>
       );
     }
