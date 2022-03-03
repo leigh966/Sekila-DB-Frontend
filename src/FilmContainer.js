@@ -55,9 +55,21 @@ class FilmContainerHead extends React.Component {
 class FilmContainerBody extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      languageName: this.props.language,
+    };
+  }
+  handleLanguageChanged(new_language_name) {
+    this.setState({ languageName: new_language_name });
+    console.log("language updated in FilmContainerBody: " + new_language_name);
+    this.forceUpdate();
   }
   render() {
     console.log(this);
+    console.log(
+      "render run at FilmContainerBody, languageName: " +
+        this.state.languageName
+    );
     return (
       <div className="FilmContainerBody">
         <h3>
@@ -71,11 +83,14 @@ class FilmContainerBody extends React.Component {
         <h3>
           <EditableField
             label={"Language: "}
-            field={this.props.language}
+            field={this.state.languageName}
             start_editing={this.props.startEditing}
             dropDown={
               <LanguageDropdown
-                handler={this.props.languageHandler}
+                handler={(option) => {
+                  this.props.languageHandler(option.value);
+                  this.handleLanguageChanged(option.label);
+                }}
                 current={this.props.language}
               />
             }

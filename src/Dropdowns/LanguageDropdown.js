@@ -48,8 +48,8 @@ export class LanguageDropdown extends React.Component {
     return (
       <Dropdown
         options={options}
-        onChange={(event) => {
-          this.props.handler(event.value);
+        onChange={(option) => {
+          this.props.handler(option);
         }}
         value={this.props.current}
         placeholder="Select an option"
