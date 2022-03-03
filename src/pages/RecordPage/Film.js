@@ -97,7 +97,22 @@ export class FilmPage extends RecordPage {
     });
   }
 
+  validateTitle(title) {
+    const MAX_LENGTH = 60;
+    const BLANK = title.length < 1;
+    const TOO_LONG = title.length > MAX_LENGTH;
+    if (BLANK) window.alert("Title cannot be blank");
+    if (TOO_LONG) window.alert("Title too long!");
+    if (BLANK || TOO_LONG) return false;
+    return true;
+  }
+
+  validateFilm() {
+    return this.validateTitle(this.state.filmInfo[0].title);
+  }
+
   saveFilm() {
+    if (!this.validateFilm()) return;
     console.log(this.state.release_year);
     const id = this.props.id;
     const title = this.state.filmInfo[0].title;
