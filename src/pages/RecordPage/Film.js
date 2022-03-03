@@ -107,8 +107,41 @@ export class FilmPage extends RecordPage {
     return true;
   }
 
+  validateRelease_year(release_year) {
+    console.log(release_year);
+    //Make sure it is a number
+    const RELEASE_YEAR_STRING = release_year.toString();
+    RELEASE_YEAR_STRING.split("").forEach((place) => {
+      if (!"0123456789".includes(place)) {
+        window.alert("Release year must be a number");
+        return false;
+      }
+    });
+    release_year = parseInt(release_year);
+
+    // Make sure the year is reasonable
+    const FIRST_EVER_FILM_RELEASE = 1888;
+    const CURRENT_YEAR = new Date().getFullYear();
+
+    const TOO_OLD = release_year < FIRST_EVER_FILM_RELEASE;
+    if (TOO_OLD) {
+      window.alert("No film is that old");
+    }
+
+    const IN_FUTURE = release_year > CURRENT_YEAR;
+    if (IN_FUTURE) {
+      window.alert("Release year cannot be in the future");
+    }
+
+    if (TOO_OLD || IN_FUTURE) return false;
+    return true;
+  }
+
   validateFilm() {
-    return this.validateTitle(this.state.filmInfo[0].title);
+    return (
+      this.validateTitle(this.state.filmInfo[0].title) &&
+      this.validateRelease_year(this.state.filmInfo[0].release_year)
+    );
   }
 
   saveFilm() {
