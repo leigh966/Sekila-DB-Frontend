@@ -146,6 +146,9 @@ function onDelete(id) {
     .then((text) => {
       console.log(text);
       window.alert(text);
+      window.location.assign(
+        `http://${window.location.hostname}:${window.location.port}/actors`
+      );
     });
 }
 
