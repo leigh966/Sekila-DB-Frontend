@@ -138,9 +138,23 @@ export class ActorPage extends RecordPage {
   }
 }
 
+function onDelete(id) {
+  fetch(`http:${getRoot()}/home/delete_actor?id=${id}`)
+    .then((response) => response.text())
+    .then((text) => {
+      console.log(text);
+      window.alert(text);
+    });
+}
+
 const Actor = () => {
   let { id } = useParams();
-  return <ActorPage id={id} />;
+  return (
+    <>
+      <button onClick={(id) => onDelete(id)}>Delete</button>
+      <ActorPage id={id} />
+    </>
+  );
 };
 
 export default Actor;
