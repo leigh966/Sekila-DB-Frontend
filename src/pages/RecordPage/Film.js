@@ -44,7 +44,7 @@ export class FilmPage extends RecordPage {
     this.setState({
       filmInfo: json,
       rating: json[0].rating,
-      langaugeId: json[0].language.language_id,
+      languageId: json[0].language.language_id,
     });
   }
 
@@ -54,7 +54,7 @@ export class FilmPage extends RecordPage {
     this.setState({
       filmInfo: this.state.filmInfo,
       rating: this.state.rating,
-      langaugeId: this.state.langaugeId,
+      languageId: this.state.languageId,
     });
   }
 
@@ -63,7 +63,7 @@ export class FilmPage extends RecordPage {
     this.setState({
       filmInfo: this.state.filmInfo,
       rating: new_rating,
-      langaugeId: this.state.langaugeId,
+      languageId: this.state.languageId,
     });
     console.log("rating: " + this.state.rating);
   }
@@ -74,7 +74,7 @@ export class FilmPage extends RecordPage {
     this.setState({
       filmInfo: this.state.filmInfo,
       rating: this.state.rating,
-      langaugeId: this.state.langaugeId,
+      languageId: this.state.languageId,
     });
   }
 
@@ -84,7 +84,7 @@ export class FilmPage extends RecordPage {
     this.setState({
       filmInfo: newFilmInfo,
       rating: this.state.rating,
-      langaugeId: this.state.langaugeId,
+      languageId: this.state.languageId,
     });
   }
 
@@ -104,7 +104,7 @@ export class FilmPage extends RecordPage {
     const rating = this.state.rating;
     const release_year = this.state.filmInfo[0].release_year;
     const length = this.state.filmInfo[0].length;
-    const languageId = this.state.langaugeId;
+    const languageId = this.state.languageId;
     fetch(
       `http://${getRoot()}/home/update_film?id=${id}` +
         `&title=${title}&rating=${rating}` +
