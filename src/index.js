@@ -11,6 +11,7 @@ import { AllActors } from "./pages/All/AllActors";
 import SearchActor from "./pages/Search/SearchActor";
 import SearchFilm from "./pages/Search/SearchFilm";
 import AddFilm from "./pages/Add/AddFilm";
+import AddActor from "./pages/Add/AddActor";
 
 export default function App() {
   return (
@@ -27,6 +28,7 @@ export default function App() {
           <Route path="Search_Film" element={<SearchFilm />} />
           <Route path="Search_Film/:query" element={<SearchFilm />} />
           <Route path="add_film" element={<AddFilm />} />
+          <Route path="add_actor" element={<AddActor />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
