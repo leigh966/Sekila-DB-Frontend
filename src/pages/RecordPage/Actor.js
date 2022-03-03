@@ -16,12 +16,12 @@ class ActorContainer extends React.Component {
     return (
       <h1>
         <EditableField
-          label=""
+          label="Forename: "
           field={this.props.first_name}
           handler={this.props.firstNameHandler}
         />
         <EditableField
-          label=""
+          label="Surname: "
           field={this.props.last_name}
           handler={this.props.lastNameHandler}
         />
