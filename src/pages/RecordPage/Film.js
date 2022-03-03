@@ -204,10 +204,26 @@ export class FilmPage extends RecordPage {
   }
 }
 
+function onDelete(id) {
+  fetch(`http://${getRoot()}/home/delete_film?id=${id.toString()}`, {
+    method: "DELETE",
+  })
+    .then((response) => response.text())
+    .then((text) => {
+      console.log(text);
+      window.alert(text);
+    });
+}
+
 export function Film() {
   const { id } = useParams();
   console.log({ id });
-  return <FilmPage id={id} />;
+  return (
+    <>
+      <button onClick={() => onDelete(id)}>Delete</button>
+      <FilmPage id={id} />
+    </>
+  );
 }
 
 export default Film;
