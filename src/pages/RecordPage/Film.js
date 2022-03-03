@@ -89,6 +89,7 @@ export class FilmPage extends RecordPage {
   }
 
   handleLanguageChanged(new_language_id) {
+    console.log("Language_id changed to " + new_language_id);
     this.setState({
       filmInfo: this.state.filmInfo,
       rating: this.state.rating,
