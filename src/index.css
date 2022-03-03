@@ -7,13 +7,11 @@
 }
 
 .FilmContainerHead {
-  background-color: pink;
   height: 100px;
   width: 95%;
 }
 
 .FilmContainerBody {
-  background-color: aqua;
   height: 60%;
   width: 95%;
 }
@@ -21,7 +19,6 @@
 .FilmContainer {
   width: 95%;
   padding-left: 5%;
-  background-color: red;
   height: 400px;
 }
 
@@ -29,7 +26,6 @@
   padding-right: 20px;
   width: 30%;
   height: 30px;
-  background-color: brown;
   float: left;
 }
 
