@@ -33,8 +33,8 @@ export class LanguageDropdown extends React.Component {
 
   getOptions() {
     let options = [];
-    this.state.languages.forEach((language, index) => {
-      options.push({ value: index, label: language.name });
+    this.state.languages.forEach((language) => {
+      options.push({ value: language.language_id, label: language.name });
     });
     return options;
   }
