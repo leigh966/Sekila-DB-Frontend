@@ -43,8 +43,8 @@ export class FilmPage extends RecordPage {
     console.log(json);
     this.setState({
       filmInfo: json,
-      title: json[0].title,
       rating: json[0].rating,
+      langaugeId: json[0].language.language_id,
     });
   }
 
