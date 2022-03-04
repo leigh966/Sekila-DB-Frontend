@@ -107,6 +107,17 @@ export class FilmPage extends RecordPage {
     return true;
   }
 
+  handleDescriptionChanged(new_description) {
+    console.log("description changed to " + new_description);
+    let newFilmInfo = this.state.filmInfo;
+    newFilmInfo[0].new_description = new_description;
+    this.setState({
+      filmInfo: this.state.filmInfo,
+      rating: this.state.rating,
+      languageId: this.state.languageId,
+    });
+  }
+
   validateRelease_year(release_year) {
     console.log(release_year);
     //Make sure it is a number
