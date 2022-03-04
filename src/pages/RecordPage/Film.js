@@ -36,6 +36,7 @@ export class FilmPage extends RecordPage {
     this.handleReleaseYearChanged = this.handleReleaseYearChanged.bind(this);
     this.handleLengthChanged = this.handleLengthChanged.bind(this);
     this.handleLanguageChanged = this.handleLanguageChanged.bind(this);
+    this.handleDescriptionChanged = this.handleDescriptionChanged.bind(this);
     this.startEditing = false;
   }
 
@@ -190,6 +191,7 @@ export class FilmPage extends RecordPage {
         lengthHandler={this.handleLengthChanged}
         languageHandler={this.handleLanguageChanged}
         startEditing={this.startEditing}
+        descriptionHandler={this.handleDescriptionChanged}
       />
     );
   }
