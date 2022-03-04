@@ -113,6 +113,7 @@ class FilmContainerBody extends React.Component {
             label="Description: "
             field={this.props.description}
             start_editing={this.props.startEditing}
+            handler={this.props.descriptionHandler}
           />
         </h3>
       </div>
@@ -147,6 +148,7 @@ export class FilmContainer extends React.Component {
           lengthHandler={this.props.lengthHandler}
           languageHandler={this.props.languageHandler}
           startEditing={this.props.startEditing}
+          descriptionHandler={this.props.descriptionHandler}
         />
       </div>
     );
