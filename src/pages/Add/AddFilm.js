@@ -19,6 +19,8 @@ class AddFilmPage extends FilmPage {
     //json[0].description = "";
     json[0].release_year = "";
     json[0].length = "";
+    json[0].language_id = -1;
+    json[0].description = "";
     this.setState({
       filmInfo: json,
       title: json[0].title,
